@@ -20,7 +20,16 @@ Route::post('/submit_new_notice',[ManagerController::class,'submit_notice']);
 
 Route::get('/view_notice_board',[ManagerController::class,'view_notice']);
 
-Route::get('/update_notice/{id}',[ManagerController::class,'update_exsiting_notice']);
+Route::get('/update_notice/{id}',action: [ManagerController::class,'update_existing_notice']);
+
+Route::post('/update_submitted_notice/{id}',[ManagerController::class,'update_existing_submitted_notice']);
+
+Route::get('/delete_notice/{id}',[ManagerController::class,'delete_notices']);
+
+Route::get('/update_payroll/{id}',[ManagerController::class,'update_payrolls']);
+
+Route::post('/submitted_payroll_data/{id}',[ManagerController::class,'update_submitted_payroll']);
+
 
 Route::middleware([
     'auth:sanctum',

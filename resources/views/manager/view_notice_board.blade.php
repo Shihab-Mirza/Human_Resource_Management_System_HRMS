@@ -49,15 +49,18 @@ td {
                     <th>To</th>
                     <th>Notice</th>
                     <th>Date Created</th>
-                    <th>Action</th>
+                    <th>Update Action</th>
+                    <th>Delete Action</th>
                 </tr>
-                @foreach($notice_data as $data)
+                @foreach($view_notice_data as $data)
                 <tr>
-                 <td>{{$data->Title}}</td>
+                 <td>{{$data->title}}</td>
                  <td>{{$data->notice_to}}</td>
                  <td>{{$data->message }}</td>
                  <td>{{$data->date_created }}</td>
-                 <td><a href="{{ url('update_notice/id') }}">Update</a></td>
+                 <td><a href="{{ url('update_notice',$data->id) }}">Update</a></td>
+                 <td><a href="{{ url('delete_notice',$data->id) }}">Delete</a></td>
+
                 </tr>
                 @endforeach
             </table>

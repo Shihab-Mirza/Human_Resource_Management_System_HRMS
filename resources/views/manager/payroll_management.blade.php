@@ -26,39 +26,7 @@
             display: none;
         }
     </style>
-    <script>
-        function editRow(row) {
-            var cells = row.getElementsByTagName('td');
-            for (var i = 4; i < cells.length - 1; i++) { // Start from base salary monthly to Total Salary
-                // Skip the Base Salary Yearly (index 5) and Total Salary (index 7) columns
-                if (i === 5 || i === 7) continue;
 
-                var input = document.createElement('input');
-                input.type = 'text';
-                input.value = cells[i].innerText; // Set input value to the current cell's text
-                cells[i].innerText = '';
-                cells[i].appendChild(input);
-            }
-            // Replace the update link with a save button
-            var actionCell = cells[cells.length - 1];
-            actionCell.innerHTML = '<button onclick="saveRow(this)">Save</button>';
-        }
-
-        function saveRow(button) {
-            var row = button.closest('tr');
-            var cells = row.getElementsByTagName('td');
-            for (var i = 4; i < cells.length - 1; i++) {
-                // Skip the Base Salary Yearly (index 5) and Total Salary (index 7) columns
-                if (i === 5 || i === 7) continue;
-
-                var input = cells[i].getElementsByTagName('input')[0];
-                cells[i].innerText = input.value; // Save input value
-            }
-            // Replace save button with update link
-            var actionCell = cells[cells.length - 1];
-            actionCell.innerHTML = '<a href="javascript:void(0);" onclick="editRow(this.closest(\'tr\'))">Update</a>';
-        }
-    </script>
 </head>
 <body>
 @include('manager.navigation')
@@ -67,8 +35,7 @@
     <div class="page-header">
         <div class="container-fluid">
             <h2>Payroll Management</h2>
-            <form method="post" action="{{url('update_payroll')}}">
-                @csrf
+
             <table>
                 <tr>
                     <th>Employee ID</th>
@@ -87,11 +54,11 @@
                     <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
                     <td>{{ $employee->department }}</td>
                     <td>{{ $employee->position }}</td>
-                    <td name = "base_salary_month">{{ $employee->payrolls->base_salary_monthly }}</td>
-                    <td>{{ $employee->payrolls->base_salary_yearly }}</td>
-                    <td>{{ $employee->payrolls->bonus }}</td>
-                    <td>{{ $employee->payrolls->total_salary }}</td>
-                    <td><a href="javascript:void(0);" onclick="editRow(this.closest('tr'))">Update</a></td>
+                    <td name = "base_salary_month">{{ $employee->payroll->base_salary_monthly }}</td>
+                    <td>{{ $employee->payroll->base_salary_yearly }}</td>
+                    <td>{{ $employee->payroll->bonus }}</td>
+                    <td>{{ $employee->payroll->total_salary }}</td>
+                    <td><a href="{{ url('update_payroll', $employee->id) }}">Update</a></td>
                 </tr>
                 @endforeach
             </table>

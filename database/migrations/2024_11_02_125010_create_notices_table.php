@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('notice_to');
-            $table->string('date_created');
+            $table->date('date_created');
             $table->longtext('message');
             $table->timestamps();
         });

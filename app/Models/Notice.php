@@ -10,5 +10,6 @@ class Notice extends Model
     'title',
     'notice_to',
     'message',
+    'date',
    ];
 }

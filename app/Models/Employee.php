@@ -25,11 +25,11 @@ class Employee extends Model
 
     ];
 
-    public function payrolls()
+    public function payroll()
 
 {
 
-return $this->hasOne(Payroll::class);
+return $this->hasOne(Payroll::class,'employee_id');
 
 }
 

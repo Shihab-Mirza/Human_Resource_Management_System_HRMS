@@ -62,7 +62,8 @@ $data->employee_unique_id = $randomNumber;
 
 public function view_payroll(){
 
-$employee = Employee::with('payrolls')->get();
+
+$employee = Employee::with('payroll')->get();
 
 
 return view ('manager.payroll_management',compact('employee'));
@@ -72,7 +73,6 @@ return view ('manager.payroll_management',compact('employee'));
 
 
 public function view_department_employee($department){
-
 
     $employee_data = Employee::where('department',$department)->get();
 
@@ -91,14 +91,14 @@ return view('manager.notice_board');
 public function submit_notice(Request $request){
 
 
-$data = new Notice;
+$notice_data = new Notice;
 
-$data->title = $request->title;
-$data->notice_to = $request->notice_to;
-$data->message = $request->message;
-$data->date_created = $request->date;
+$notice_data->title = $request->title;
+$notice_data->notice_to = $request->notice_to;
+$notice_data->message = $request->message;
+$notice_data->date_created = $request->date;
 
-$data->save();
+$notice_data->save();
 return redirect()->back()->with('success', 'Notice submitted successfully!');
 
 
@@ -106,27 +106,94 @@ return redirect()->back()->with('success', 'Notice submitted successfully!');
 
 public function view_notice(){
 
-$notice_data=  Notice::all();
-return view ('manager.view_notice_board',compact('notice_data'));
+$view_notice_data = Notice::all();
+return view ('manager.view_notice_board',compact('view_notice_data'));
 
 
 
 }
 
-public function update_notice($id){
+public function update_existing_notice($id){
 
 
-return view('manager.update_notice');
+$existing_notice_data=Notice::find($id);
+
+
+
+return view('manager.update_notice',compact('existing_notice_data'));
+
+
+}
+
+public function update_existing_submitted_notice(Request $request,$id ){
+
+
+$updated_notice_data=Notice::find($id);
+
+$updated_notice_data->title=$request->title;
+$updated_notice_data->notice_to=$request->notice_to;
+$updated_notice_data->message=$request->message;
+$updated_notice_data->date_created=$request->date;
+$updated_notice_data->save();
+
+
+return redirect()->back()->with('success','Notice Updated Successfully!');
 
 
 }
 
 
+public function delete_notices($id){
+
+$delete_notice_data=Notice::find($id);
+
+$delete_notice_data->delete();
+
+return redirect()->back();
 
 }
 
 
 
+
+
+
+
+public function update_payrolls($id){
+
+    $payroll_data=payroll::find($id);
+
+    $existing_payroll_data=Employee::with('payroll')->find($id);
+
+
+    return view ('manager.update_payroll',compact('existing_payroll_data','payroll_data'));
+
+
+}
+
+
+public function update_submitted_payroll(Request $request , $id){
+
+
+$updated_payroll_data = Payroll::find($id);
+
+
+$updated_payroll_data->bonus=$request->bonus;
+$updated_payroll_data->base_salary_monthly=$request->base_salary_monthly;
+$updated_payroll_data->base_salary_yearly=$request->base_salary_monthly*12;
+$updated_payroll_data->total_salary=$updated_payroll_data->base_salary_yearly+$request->bonus;
+
+
+
+$updated_payroll_data->save();
+
+
+return redirect()->back();
+
+}
+
+
+}
 
 
 
