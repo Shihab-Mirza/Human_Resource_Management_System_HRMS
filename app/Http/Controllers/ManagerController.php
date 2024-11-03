@@ -23,7 +23,7 @@ class ManagerController extends Controller
    $payroll_data = new Payroll;
    $request->validate([
     'employee_email'=> 'required|email||unique:employee,email',
-    'phone'=> 'required|numeric|integer|unique:employee,phone_number',
+    'phone'=> 'required|unique:employee,phone_number',
 
    ]);
 
@@ -75,8 +75,9 @@ return view ('manager.payroll_management',compact('employee'));
 public function view_department_employee($department){
 
     $employee_data = Employee::where('department',$department)->get();
+    $department_name = $department;
 
-    return view('manager.view_department_employee',compact('employee_data'));
+    return view('manager.view_department_employee',compact('employee_data','department_name'));
 
 
 }
@@ -193,8 +194,66 @@ return redirect()->back();
 }
 
 
+
+public function view_full_employee_profile($id){
+
+$employee_full_data=Employee::find($id);
+
+
+return view('manager.view_employee_full_profile',compact('employee_full_data'));
+
+
 }
 
+
+public function view_update_full_employee_profile($id){
+
+
+$employee_existing_profile_data=Employee::find($id);
+
+
+return view('manager.update_full_employee_profile',compact('employee_existing_profile_data'));
+}
+
+
+public function update_full_employee_profile(Request $request, $id){
+
+
+    $update_employee_data=Employee::find($id);
+
+
+
+    $update_employee_data->first_name=$request->first_name;
+    $update_employee_data->last_name=$request->last_name;
+    $update_employee_data->date_of_birth=$request->dob;
+    $update_employee_data->gender=$request->gender;
+    $update_employee_data->email =$request->employee_email;
+    $update_employee_data->phone_number=$request->phone;
+    $update_employee_data->address=$request->address;
+    $update_employee_data->city=$request->city;
+    $update_employee_data->country=$request->country;
+    $update_employee_data->department=$request->department;
+    $update_employee_data->position=$request->position;
+    $update_employee_data->joining_date=$request->joining_date;
+    $update_employee_data->save();
+
+    return redirect()->back()->with('success','Employee profile updated Successfully!');
+
+}
+
+public function  delete_full_employee_profile($id){
+
+$delete_profile_data =Employee::find($id);
+
+$delete_profile_data->delete();
+
+return redirect()->back()->with('success','Successfully deleted Employee profile!');
+
+}
+
+
+
+}
 
 
 

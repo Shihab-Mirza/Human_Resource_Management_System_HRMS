@@ -11,20 +11,26 @@
     @include('manager.css')
     <style>
         table {
-            width: 80%;
+            width: 100%;
             border-collapse: collapse;
+            table-layout: fixed; /* Use fixed layout */
+
         }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
+            word-wrap: break-word; /* Allow long words to break onto the next line */
+            white-space: normal; /* Ensure text can wrap */
+            overflow-wrap: break-word; /* Ensure long words wrap */
         }
         th {
             background-color: #f2f2f2;
+            word-wrap: break-word; /* Allow long words to break onto the next line */
+            white-space: normal; /* Ensure text can wrap */
+            overflow-wrap: break-word; /* Ensure long words wrap */
         }
-        .hidden {
-            display: none;
-        }
+
     </style>
 
 </head>

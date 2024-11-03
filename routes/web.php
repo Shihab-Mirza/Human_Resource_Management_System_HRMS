@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
-
+use Illuminate\Database\Capsule\Manager;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,12 +15,21 @@ Route::get('/add_new_employee',[ManagerController::class,'add_employee']);
 Route::post('/submit_new_employee_form',[ManagerController::class,'submit_employee_form']);
 Route::get('/payroll_management',[ManagerController::class,'view_payroll']);
 Route::get('/view_employee/{department}',[ManagerController::class,'view_department_employee']);
+Route::get('/view_full_profile/{id}',[ManagerController::class,'view_full_employee_profile']);
+
+Route::get('/update_employee_profile/{id}',[ManagerController::class,'view_update_full_employee_profile']);
+Route::get('/update_employee_profile/{id}',[ManagerController::class,'view_update_full_employee_profile']);
+Route::post('/update_employee_form/{id}',[ManagerController::class,'update_full_employee_profile']);
+Route::get('/delete_employee_profile/{id}',[ManagerController::class,'delete_full_employee_profile']);
+
+
+
 Route::get('/notice_board',[ManagerController::class,'add_notice']);
 Route::post('/submit_new_notice',[ManagerController::class,'submit_notice']);
 
 Route::get('/view_notice_board',[ManagerController::class,'view_notice']);
 
-Route::get('/update_notice/{id}',action: [ManagerController::class,'update_existing_notice']);
+Route::get('/update_notice/{id}' ,[ManagerController::class,'update_existing_notice']);
 
 Route::post('/update_submitted_notice/{id}',[ManagerController::class,'update_existing_submitted_notice']);
 

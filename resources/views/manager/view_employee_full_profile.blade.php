@@ -140,8 +140,6 @@ input[type="file"] {
 
 }
 
-
-
 </style>
   </head>
   <body>
@@ -151,55 +149,34 @@ input[type="file"] {
         <div class="page-header">
           <div class="container-fluid">
                 <div class="employee-form-container">
-                    <h1 class="employee-form-title">New Employee Form</h1>
-                    @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                     @endif
-
-                    @if($errors->all())
-                    <div class="alert alert-danger">
-                      <ul>
-                      @foreach($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                      </ul>
-                      @endforeach
-                    </ul>
-                </div>
-                    @endif
-
-
-                    <form class="employee-form" action="{{ url('submit_new_employee_form') }}" method="post" enctype="multipart/form-data">
+                    <h1 class="employee-form-title">Employee Full Profile</h1>
+                    <form class="employee-form" enctype="multipart/form-data">
                         @csrf
                         <!-- Personal Information -->
                         <fieldset class="personal-info-fieldset">
                             <legend class="personal-info-legend">Personal Information</legend>
                             <div class="personal-info-inline-group">
+                                <div class="employee-unique-id-field" style="flex: 1; margin-right: 10px;">
+                                    <label for="employee-unique-id" class="employee-unique-id label">Employee ID:</label>
+                                    <input type="text"  name="first_name" class="employee-unique-id" value="{{ $employee_full_data->employee_unique_id }}" readonly>
+                                </div>
                                 <div class="first-name-field" style="flex: 1; margin-right: 10px;">
                                     <label for="first-name" class="first-name-label">First Name:</label>
-                                    <input type="text"  name="first_name" class="first-name-input" required value="{{ old('first_name') }}">
+                                    <input type="text"  name="first_name" class="first-name-input"  value="{{ $employee_full_data->first_name }}" readonly>
                                 </div>
                                 <div class="last-name-field" style="flex: 1;">
                                     <label for="last-name" class="last-name-label">Last Name:</label>
-                                    <input type="text"  name="last_name" class="last-name-input" required value="{{ old('last_name') }}">
+                                    <input type="text"  name="last_name" class="last-name-input"  value="{{ $employee_full_data->last_name }}" readonly>
                                 </div>
                             </div>
                             <div class="dob-field">
                                 <label for="dob" class="dob-label">Date of Birth:</label>
-                                <input type="date"  name="dob" class="dob-input" required >
+                                <input type="text"  name="dob" class="dob-input"  value="{{ $employee_full_data->date_of_birth }}" readonly>
                             </div>
                             <div class="gender-field">
                                 <label for="gender" class="gender-label">Gender:</label>
-                                <select  name="gender" class="gender-select" required value="{{ old('gender') }}">
-                                    <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                            </div>
-                            <div class="image-field">
-                            <label for="profile-photo" class="profile-photo-label">Employee Profile photo</label>
-                            <input type="file" name="employee_image" accept="image/*">
+                                <input type="text"  name="last_name" class="last-name-input"  value="{{ $employee_full_data->gender }}" readonly>
+
                             </div>
                         </fieldset>
 
@@ -208,23 +185,23 @@ input[type="file"] {
                             <legend class="contact-info-legend">Contact Information</legend>
                             <div class="email-field">
                                 <label for="email" class="email-label">Email:</label>
-                                <input type="email" name="employee_email" class="email-input" required value="{{ old('employee_email') }}">
+                                <input type="text" name="employee_email" class="email-input" value="{{ $employee_full_data->email }}" readonly>
                             </div>
                             <div class="phone-field">
                                 <label for="phone" class="phone-label">Phone Number:</label>
-                                <input type="number"  name="phone" class="phone-input" required value="{{ old('phone') }}">
+                                <input type="text"  name="phone" class="phone-input"  value="{{ $employee_full_data->phone_number }}" readonly>
                             </div>
                             <div class="address-field">
                                 <label for="address" class="address-label">Address:</label>
-                                <input type="text"  name="address" class="address-input" required value="{{ old('address') }}">
+                                <input type="text"  name="address" class="address-input" value="{{ $employee_full_data->address }}" readonly>
                             </div>
                             <div class="city-field">
                                 <label for="city" class="city-label">City:</label>
-                                <input type="text"  name="city" class="city-input" required value="{{ old('city') }}">
+                                <input type="text"  name="city" class="city-input" value="{{ $employee_full_data->city }}" readonly>
                             </div>
                             <div class="country-field">
                                 <label for="country" class="country-label">Country:</label>
-                                <input type="text"  name="country" class="country-input" required value="{{ old('country') }}" >
+                                <input type="text"  name="country" class="country-input" value="{{ $employee_full_data->country }}" readonly >
                             </div>
                         </fieldset>
 
@@ -233,27 +210,19 @@ input[type="file"] {
                             <legend class="employment-info-legend">Employment Information</legend>
                             <div class="department-field">
                                 <label for="department" class="department-label">Department:</label>
-                                <select id="department" name="department" class="department-select" required>
-                                    <option value="">Select a department</option>
-                                    <option value="production">Production</option>
-                                    <option value="finance">Finance</option>
-                                    <option value="marketing">Marketing</option>
-                                </select>
+                                <input type="text" name="department" class="department-select" value="{{ $employee_full_data->department }}" readonly>
+
                             </div>
 
                             <div class="position-field">
                                 <label for="position" class="position-label">Position:</label>
-                                <input type="text" id="position" name="position" class="position-input" required value="{{ old('position') }}">
+                                <input type="text"  name="position" class="position-input" value="{{ $employee_full_data->position }}" readonly>
                             </div>
                             <div class="start-date-field">
                                 <label for="start-date" class="start-date-label">Joining Date:</label>
-                                <input type="date" id="start-date" name="joining_date" class="start-date-input" required>
+                                <input type="text"  name="joining_date" class="start-date-input" value="{{ $employee_full_data->joining_date }}" readonly >
                             </div>
                         </fieldset>
-
-                        <div class="submit-button-field">
-                            <button type="submit" class="submit-button">Submit</button>
-                        </div>
                     </form>
                 </div>
 

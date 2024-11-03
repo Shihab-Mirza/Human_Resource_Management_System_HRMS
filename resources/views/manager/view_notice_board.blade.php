@@ -11,8 +11,10 @@
     @include('manager.css')
     <style>
         table {
-            width: 80%;
+            width: 100%;
             border-collapse: collapse;
+            table-layout: fixed; /* Use fixed layout */
+
         }
         th{   border: 1px solid #ddd; /* Add borders to cells */
     padding: 8px; /* Add padding for better spacing */

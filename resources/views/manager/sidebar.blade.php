@@ -2,7 +2,7 @@
  <nav id="sidebar">
     <!-- Sidebar Header-->
     <div class="sidebar-header d-flex align-items-center">
-      <div class="avatar"><img src="/img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+      <div class="avatar"><img src="#" alt="..." class="img-fluid rounded-circle"></div>
       <div class="title">
         <h1 class="h5">SM</h1>
         <p>Manager</p>
@@ -10,7 +10,7 @@
     </div>
     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
     <ul class="list-unstyled">
-            <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+            <li class="active"><a href="#"> <i class="icon-home"></i>Home </a></li>
             <li><a href="#department_drop_down" aria-expanded="false" data-toggle="collapse"font-size="6"> <i class="icon-windows" ></i>Employee Management </a>
                 <ul id="department_drop_down" class="collapse list-unstyled ">
                   <li><a href="{{ url('view_employee/production') }}">Production</a></li>
@@ -32,9 +32,8 @@
     <ul class="list-unstyled">
         <li><a href="#notice_drop_down" aria-expanded="false" data-toggle="collapse"font-size="6"> <i class="icon-windows" ></i>Notice</a>
             <ul id="notice_drop_down" class="collapse list-unstyled ">
-              <li><a href="{{ url('notice_board') }}">Add New Notice</a></li>
-              <li><a href="{{ url('view_notice_board') }}">Update Notice</a></li>
-
+                <li><a href="{{ url('view_notice_board') }}">View Notice</a></li>
+                <li><a href="{{ url('notice_board') }}">Add New Notice</a></li>
             </ul>
           </li>
       <li> <a href="#"> <i class="icon-writing-whiteboard"></i> </a></li>

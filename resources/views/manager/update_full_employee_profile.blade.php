@@ -169,8 +169,10 @@ input[type="file"] {
                 </div>
                     @endif
 
-
-                    <form class="employee-form" action="{{ url('submit_new_employee_form') }}" method="post" enctype="multipart/form-data">
+                    @if(is_null($employee_existing_profile_data))
+                    <div class="alert alert-danger">Employee data not found.</div>
+                @else
+                    <form class="employee-form" action="{{ url('update_employee_form',$employee_existing_profile_data->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <!-- Personal Information -->
                         <fieldset class="personal-info-fieldset">
@@ -178,23 +180,23 @@ input[type="file"] {
                             <div class="personal-info-inline-group">
                                 <div class="first-name-field" style="flex: 1; margin-right: 10px;">
                                     <label for="first-name" class="first-name-label">First Name:</label>
-                                    <input type="text"  name="first_name" class="first-name-input" required value="{{ old('first_name') }}">
+                                    <input type="text"  name="first_name" class="first-name-input" required value="{{ $employee_existing_profile_data->first_name }}">
                                 </div>
                                 <div class="last-name-field" style="flex: 1;">
                                     <label for="last-name" class="last-name-label">Last Name:</label>
-                                    <input type="text"  name="last_name" class="last-name-input" required value="{{ old('last_name') }}">
+                                    <input type="text"  name="last_name" class="last-name-input" required value="{{ $employee_existing_profile_data->last_name }}">
                                 </div>
                             </div>
                             <div class="dob-field">
                                 <label for="dob" class="dob-label">Date of Birth:</label>
-                                <input type="date"  name="dob" class="dob-input" required >
+                                <input type="date"  name="dob" class="dob-input" required value="{{ \Carbon\Carbon::parse($employee_existing_profile_data->date_of_birth)->format('Y-m-d') }}">
                             </div>
                             <div class="gender-field">
                                 <label for="gender" class="gender-label">Gender:</label>
-                                <select  name="gender" class="gender-select" required value="{{ old('gender') }}">
+                                <select name="gender" class="gender-select" required>
                                     <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option value="male" @selected($employee_existing_profile_data->gender == 'male')>Male</option>
+                                    <option value="female" @selected($employee_existing_profile_data->gender == 'female')>Female</option>
                                 </select>
                             </div>
                             <div class="image-field">
@@ -208,23 +210,23 @@ input[type="file"] {
                             <legend class="contact-info-legend">Contact Information</legend>
                             <div class="email-field">
                                 <label for="email" class="email-label">Email:</label>
-                                <input type="email" name="employee_email" class="email-input" required value="{{ old('employee_email') }}">
+                                <input type="email" name="employee_email" class="email-input" required value="{{ $employee_existing_profile_data->email }}">
                             </div>
                             <div class="phone-field">
                                 <label for="phone" class="phone-label">Phone Number:</label>
-                                <input type="number"  name="phone" class="phone-input" required value="{{ old('phone') }}">
+                                <input type="number"  name="phone" class="phone-input" required value="{{ $employee_existing_profile_data->phone_number }}">
                             </div>
                             <div class="address-field">
                                 <label for="address" class="address-label">Address:</label>
-                                <input type="text"  name="address" class="address-input" required value="{{ old('address') }}">
+                                <input type="text"  name="address" class="address-input" required value="{{ $employee_existing_profile_data->address }}">
                             </div>
                             <div class="city-field">
                                 <label for="city" class="city-label">City:</label>
-                                <input type="text"  name="city" class="city-input" required value="{{ old('city') }}">
+                                <input type="text"  name="city" class="city-input" required value="{{ $employee_existing_profile_data->city }}">
                             </div>
                             <div class="country-field">
                                 <label for="country" class="country-label">Country:</label>
-                                <input type="text"  name="country" class="country-input" required value="{{ old('country') }}" >
+                                <input type="text"  name="country" class="country-input" required value="{{ $employee_existing_profile_data->country }}" >
                             </div>
                         </fieldset>
 
@@ -235,26 +237,28 @@ input[type="file"] {
                                 <label for="department" class="department-label">Department:</label>
                                 <select id="department" name="department" class="department-select" required>
                                     <option value="">Select a department</option>
-                                    <option value="production">Production</option>
-                                    <option value="finance">Finance</option>
-                                    <option value="marketing">Marketing</option>
+                                    <option value="production" @selected($employee_existing_profile_data->department == 'production')>Production</option>
+                                    <option value="finance" @selected($employee_existing_profile_data->department == 'finance')>Finance</option>
+                                    <option value="marketing" @selected($employee_existing_profile_data->department == 'marketing')>Marketing</option>
                                 </select>
                             </div>
 
                             <div class="position-field">
                                 <label for="position" class="position-label">Position:</label>
-                                <input type="text" id="position" name="position" class="position-input" required value="{{ old('position') }}">
+                                <input type="text" id="position" name="position" class="position-input" required value="{{ $employee_existing_profile_data->position }}">
                             </div>
                             <div class="start-date-field">
                                 <label for="start-date" class="start-date-label">Joining Date:</label>
-                                <input type="date" id="start-date" name="joining_date" class="start-date-input" required>
+                                <input type="date" id="start-date" name="joining_date" class="start-date-input" value="{{ \Carbon\Carbon::parse($employee_existing_profile_data->joining_date)->format('Y-m-d') }}"required>
                             </div>
                         </fieldset>
 
                         <div class="submit-button-field">
-                            <button type="submit" class="submit-button">Submit</button>
+                            <button type="submit" class="submit-button">Update</button>
                         </div>
                     </form>
+                    @endif
+
                 </div>
 
         </div>

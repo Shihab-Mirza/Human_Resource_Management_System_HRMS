@@ -14,14 +14,15 @@ class Employee extends Model
         'employee_id',
         'first_name',
         'last_name',
-       'date_of_birth',
+        'date_of_birth',
         'gender',
         'email',
-       'phone_number',
+        'phone_number',
         'address',
         'department',
         'position',
         'joining_date',
+        'employee_image',
 
     ];
 

@@ -16,17 +16,16 @@ return new class extends Migration
             $table->integer('employee_unique_id')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('date_of_birth');
+            $table->date('date_of_birth');
             $table->string('gender');
             $table->string('email');
             $table->string('phone_number');
-
             $table->string('address');
             $table->string('city');
             $table->string('country');
             $table->string('department');
             $table->string('position');
-            $table->string('joining_date');
+            $table->date('joining_date');
             $table->timestamps();
         });
     }

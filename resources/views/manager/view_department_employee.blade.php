@@ -12,33 +12,28 @@
 @include('manager.css')
 
     <style>
-
-        table {
-            width: 80%;
+ table {
+            width: 99%;
             border-collapse: collapse;
+            table-layout: fixed; /* Use fixed layout */
+
         }
-        th{       border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd; /* Add borders to cells */
-            padding: 8px; /* Add padding for better spacing */
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            background-color: #f2f2f2;}
+        th{   border: 1px solid #ddd; /* Add borders to cells */
+    padding: 8px; /* Add padding for better spacing */
+    word-wrap: break-word; /* Allow long words to break onto the next line */
+    white-space: normal; /* Ensure text can wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+
+    background-color: #f2f2f2;}
 
         td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd; /* Add borders to cells */
-            padding: 8px; /* Add padding for better spacing */
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */ }
+    border: 1px solid #ddd; /* Add borders to cells */
+    padding: 8px; /* Add padding for better spacing */
+    word-wrap: break-word; /* Allow long words to break onto the next line */
+    white-space: normal; /* Ensure text can wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
 
-
-        .hidden {
-            display: none;
-        }
+}
     </style>
 </head>
 <body>
@@ -47,32 +42,31 @@
 <div class="page-content">
     <div class="page-header">
         <div class="container-fluid">
-            <h2>Production Department</h2>
+            <h2>{{ $department_name }} department</h2>
             <table>
                 <tr>
+                    <th>Employee Photo</th>
                     <th>Employee ID</th>
                     <th>Employee Name</th>
                     <th>Department</th>
                     <th>Position</th>
-                    <th>Gender</th>
-                    <th>Date of Birth</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Address</th>
                     <th>Joining Date</th>
+                    <th>View full Profile</th>
+                    <th>Update Profile</th>
+                    <th>Delete Profile</th>
                      </tr>
+
                 @foreach($employee_data as $employee_data)
                 <tr>
+                    <td>{{ $employee_data->employee_unique_id }}</td>
                     <td>{{ $employee_data->employee_unique_id }}</td>
                     <td>{{ $employee_data->first_name }} {{ $employee_data->last_name }}</td>
                     <td>{{ $employee_data->department }}</td>
                     <td>{{ $employee_data->position }}</td>
-                    <td>{{ $employee_data->gender }}</td>
-                    <td>{{ $employee_data->date_of_birth }}</td>
-                    <td>{{ $employee_data->email }}</td>
-                    <td>{{ $employee_data->phone_number }}</td>
-                    <td>{{ $employee_data->address }}</td>
                     <td>{{ $employee_data->joining_date }}</td>
+                    <td><a href="{{ url('view_full_profile',$employee_data->id) }}">View</a></td>
+                    <td><a href="{{ url('update_employee_profile',$employee_data->id) }}">Update</a></td>
+                    <td><a href="{{ url("delete_employee_profile",$employee_data->id) }}">Delete</a></td>
                 </tr>
                 @endforeach
             </table>
