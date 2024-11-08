@@ -22,8 +22,6 @@ Route::get('/update_employee_profile/{id}',[ManagerController::class,'view_updat
 Route::post('/update_employee_form/{id}',[ManagerController::class,'update_full_employee_profile']);
 Route::get('/delete_employee_profile/{id}',[ManagerController::class,'delete_full_employee_profile']);
 
-
-
 Route::get('/notice_board',[ManagerController::class,'add_notice']);
 Route::post('/submit_new_notice',[ManagerController::class,'submit_notice']);
 
@@ -40,6 +38,13 @@ Route::get('/update_payroll/{id}',[ManagerController::class,'update_payrolls']);
 Route::post('/submitted_payroll_data/{id}',[ManagerController::class,'update_submitted_payroll']);
 
 
+Route::get('/create_job_circular',[ManagerController::class,'create_new_job_circular']);
+Route::post('/submit_job_circular',[ManagerController::class,'submitted_job_circular_form']);
+Route::get('/view_all_job_circular',[ManagerController::class,'view_existing_job_circular']);
+Route::get('/update_job_circular/{id}',[ManagerController::class,'update_existing_job_circular']);
+Route::post('/update_existing_job_circular_form/{id}',[ManagerController::class,'update_existing_job_circular_form']);
+Route::get('/delete_job_circular/{id}',[ManagerController::class,'delete_existing_job_circular']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -49,3 +54,4 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+

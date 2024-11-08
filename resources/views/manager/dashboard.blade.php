@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
 @include('manager.css')
+
   </head>
   <body>
-@include ('manager.navigation');
+@include ('manager.navigation')
 @include('manager.sidebar')
       <div class="page-content">
         <div class="page-header">

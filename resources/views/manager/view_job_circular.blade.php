@@ -39,31 +39,24 @@
 <div class="page-content">
     <div class="page-header">
         <div class="container-fluid">
-            <h2>Payroll Management</h2>
-
+            <h2>Job Circular</h2>
             <table>
                 <tr>
-                    <th>Employee ID</th>
-                    <th>Employee Name</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                    <th>Base salary monthly</th>
-                    <th>Base salary yearly</th>
-                    <th>Bonus</th>
-                    <th>Total Salary</th>
-                    <th>Action</th>
+                    <th>Job title</th>
+                    <th>Employment type</th>
+                    <th>Salary range</th>
+                    <th>Application deadline</th>
+                    <th>Update Action</th>
+                    <th>Delete Action</th>
                 </tr>
-                @foreach($employee as $employee)
+                @foreach($job_circular_data as $data)
                 <tr>
-                    <td>{{ $employee->employee_unique_id }}</td>
-                    <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
-                    <td>{{ $employee->department }}</td>
-                    <td>{{ $employee->position }}</td>
-                    <td name = "base_salary_month">{{ $employee->payroll->base_salary_monthly }}</td>
-                    <td>{{ $employee->payroll->base_salary_yearly }}</td>
-                    <td>{{ $employee->payroll->bonus }}</td>
-                    <td>{{ $employee->payroll->total_salary }}</td>
-                    <td><a href="{{ url('update_payroll', $employee->id) }}">Update</a></td>
+                    <td>{{ $data->job_title }}</td>
+                    <td>{{ $data->employment_type }}</td>
+                    <td>{{ $data->salary_range }}</td>
+                    <td>{{ $data->application_deadline }}</td>
+                    <td><a href="{{ url('update_job_circular',$data->id) }}">Update</a></td>
+                    <td><a href="{{ url('delete_job_circular',$data->id) }}">Delete</a></td>
                 </tr>
                 @endforeach
             </table>

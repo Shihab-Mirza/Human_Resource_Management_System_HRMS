@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header ">
     <nav class="navbar navbar-expand-lg">
       <div class="search-panel">
         <div class="search-inner d-flex align-items-center justify-content-center">
@@ -45,4 +45,5 @@
 </div>
     </nav>
   </header>
-  <div class="d-flex align-items-stretch">
+  <div class="d-flex align-items-stretch"></br>
+

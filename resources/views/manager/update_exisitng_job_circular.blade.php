@@ -6,17 +6,17 @@
     <title>Human Resource Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="your-path-to-css-file.css"> <!-- Link to your CSS file -->
-    @include ('manager.css')
+    @include('manager.css')
     <style>
         /* General Styles */
-        .employee-form {
+        .job-form {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
         }
 
-        .employee-form-container {
+        .job-form-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -26,7 +26,7 @@
             overflow: hidden; /* Prevent overflow */
         }
 
-        .employee-form-title {
+        .job-form-title {
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
@@ -64,9 +64,9 @@
         }
 
         input[type="text"],
+        input[type="email"],
         input[type="date"],
         input[type="tel"],
-        input[type="email"],
         input[type="number"],
         select {
             width: 100%;
@@ -76,8 +76,13 @@
             box-sizing: border-box;
         }
 
-        input[type="file"] {
-            padding: 3px;
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            box-sizing: border-box;
         }
 
         .submit-button-field {
@@ -108,15 +113,17 @@
         }
     </style>
 </head>
-<body class="employee-form-full">
+<body class="job-form-full">
     <main class="scrollable-content">
     @include('manager.navigation')
     @include('manager.sidebar')
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <div class="employee-form-container">
-                    <h1 class="employee-form-title">New Employee Form</h1>
+                <div class="job-form-container">
+                    <h1 class="job-form-title">Job Circular Form</h1>
+
+                    <!-- Success or Error Messages -->
                     @if(session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
@@ -131,38 +138,61 @@
                     </div>
                     @endif
 
-                    <form class="employee-form" action="{{ url('submit_new_employee_form') }}" method="post" enctype="multipart/form-data">
+                    <form class="job-form" action="{{ url('update_existing_job_circular_form',$existing_job_circular_data->id) }}" method="post">
                         @csrf
-                        <!-- Personal Information -->
-                        <fieldset class="personal-info-fieldset">
-                            <legend class="personal-info-legend">Personal Information</legend>
+                        <!-- Job Details -->
+                        <fieldset class="job-details-fieldset">
+                            <legend class="job-details-legend">Job Details</legend>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="first-name">First Name:</label>
-                                    <input type="text" name="first_name" required value="{{ old('first_name') }}">
+                                    <label for="job-title">Job Title:</label>
+                                    <input type="text" name="job_title"  required value="{{ $existing_job_circular_data->job_title }}">
                                 </div>
                                 <div class="form-field">
-                                    <label for="last-name">Last Name:</label>
-                                    <input type="text" name="last_name" required value="{{ old('last_name') }}">
+                                    <label for="company-name">Company Name:</label>
+                                    <input type="text" name="company_name" required value="{{ $existing_job_circular_data->company_name }}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="dob">Date of Birth:</label>
-                                    <input type="date" name="dob" required>
+                                    <label for="job-location">Job Location:</label>
+                                    <input type="text" name="job_location" required value="{{ $existing_job_circular_data->job_location  }}">
                                 </div>
                                 <div class="form-field">
-                                    <label for="gender">Gender:</label>
-                                    <select name="gender" required>
-                                        <option value="">Select Gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                    </select>
+                                    <label for="employment-type">Employment Type:</label>
+                                    <input type="text" name="employment_type"  required value="{{ $existing_job_circular_data->employment_type }}">
                                 </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="salary">Salary Range:</label>
+                                    <input type="text" name="salary"  required value="{{ $existing_job_circular_data->salary_range  }}">
+                                </div>
+                                <div class="form-field">
+                                    <label for="application-deadline">Application Deadline:</label>
+                                    <input type="date" name="application_deadline"  required value="{{ $existing_job_circular_data->application_deadline  }}">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Job Description -->
+                        <fieldset class="job-description-fieldset">
+                            <legend class="job-description-legend">Job Description</legend>
+                            <div class="form-field">
+                                <label for="company-description">Company Description:</label>
+                                <textarea name="company_description"  required>{{ $existing_job_circular_data->company_description }}</textarea>
                             </div>
                             <div class="form-field">
-                                <label for="profile-photo">Employee Profile Photo:</label>
-                                <input type="file" name="employee_image" accept="image/*">
+                                <label for="responsibilities">Job Responsibilities:</label>
+                                <textarea name="responsibilities"  required>{{ $existing_job_circular_data->responsibilities  }}</textarea>
+                            </div>
+                            <div class="form-field">
+                                <label for="requirements">Job Requirements:</label>
+                                <textarea name="requirements"  required>{{ $existing_job_circular_data->requirements  }}</textarea>
+                            </div>
+                            <div class="form-field">
+                                <label for="skills-required">Required Skills:</label>
+                                <textarea name="skills_required"  required>{{ $existing_job_circular_data->skills_required  }}</textarea>
                             </div>
                         </fieldset>
 
@@ -171,58 +201,24 @@
                             <legend class="contact-info-legend">Contact Information</legend>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="email">Email:</label>
-                                    <input type="email" name="employee_email" required value="{{ old('employee_email') }}">
+                                    <label for="contact-address">Contact Person:</label>
+                                    <input type="text" name="contact_address" required value="{{ $existing_job_circular_data->contact_address  }}">
                                 </div>
                                 <div class="form-field">
-                                    <label for="phone">Phone Number:</label>
-                                    <input type="number" name="phone" required value="{{ old('phone') }}">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="address">Address:</label>
-                                    <input type="text" name="address" required value="{{ old('address') }}">
-                                </div>
-                                <div class="form-field">
-                                    <label for="city">City:</label>
-                                    <input type="text" name="city" required value="{{ old('city') }}">
-                                </div>
-                            </div>
-                            <div class="form-field">
-                                <label for="country">Country:</label>
-                                <input type="text" name="country" required value="{{ old('country') }}">
-                            </div>
-                        </fieldset>
-
-                        <!-- Employment Information -->
-                        <fieldset class="employment-info-fieldset">
-                            <legend class="employment-info-legend">Employment Information</legend>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="department">Department:</label>
-                                    <select id="department" name="department" required>
-                                        <option value="">Select a department</option>
-                                        <option value="production">Production</option>
-                                        <option value="finance">Finance</option>
-                                        <option value="marketing">Marketing</option>
-                                    </select>
-                                </div>
-                                <div class="form-field">
-                                    <label for="position">Position:</label>
-                                    <input type="text" id="position" name="position" required value="{{ old('position') }}">
+                                    <label for="contact-phone">Phone Number:</label>
+                                    <input type="number" name="contact_phone"  required value="{{ $existing_job_circular_data->contact_phone  }}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="joining_date">Joining Date:</label>
-                                    <input type="date" id="joining_date" name="joining_date" required>
+                                    <label for="contact-email">Email Address:</label>
+                                    <input type="email" name="contact_email" id="contact-email" required value="{{ $existing_job_circular_data->contact_email }}">
                                 </div>
                             </div>
                         </fieldset>
 
                         <div class="submit-button-field">
-                            <button type="submit" class="submit-button">Submit</button>
+                            <button type="submit" class="submit-button">Submit Job Circular</button>
                         </div>
                     </form>
                 </div>
@@ -230,6 +226,6 @@
         </div>
     </div>
     @include('manager.js')
-</main>
+    </main>
 </body>
 </html>

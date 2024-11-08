@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Job_circular;
 Use App\Models\Payroll;
 USE App\Models\Notice;
 
 
 class ManagerController extends Controller
 {
+    public function dashboard_view(){
+
+return  view('manager.dashboard');
+
+
+    }
+
+
+
 
     public function add_employee(){
 
@@ -248,6 +258,146 @@ $delete_profile_data =Employee::find($id);
 $delete_profile_data->delete();
 
 return redirect()->back()->with('success','Successfully deleted Employee profile!');
+
+}
+
+
+
+public function create_new_job_circular(){
+
+
+
+return view('manager.create_new_job_circular_form');
+
+
+
+}
+
+
+public function submitted_job_circular_form(Request $request){
+
+
+$jobCircular = new Job_circular;
+
+ $request->validate([
+
+            'job_title'=>'required|string',
+            'company_name'=>'required|string',
+            'employment_type' => 'required|string',
+            'salary' => 'required|string',
+            'application_deadline' => 'required|date',
+            'company_description' => 'required|string',
+            'responsibilities' => 'required|string',
+            'requirements' => 'required|string',
+            'skills_required' => 'required|string',
+            'contact_address' => 'required|string',
+            'contact_phone' => 'required|numeric',
+            'contact_email' => 'required|email',
+
+ ]);
+
+ $jobCircular->job_title=$request->job_title;
+ $jobCircular->company_name=$request->company_name;
+ $jobCircular->job_location = $request->job_location;
+ $jobCircular->employment_type = $request->employment_type;
+ $jobCircular->salary_range = $request->salary;
+ $jobCircular->application_deadline = $request->application_deadline;
+ $jobCircular->company_description = $request->company_description;
+ $jobCircular->responsibilities = $request->responsibilities;
+ $jobCircular->requirements = $request->requirements;
+ $jobCircular->skills_required = $request->skills_required;
+ $jobCircular->contact_address = $request->contact_address;
+ $jobCircular->contact_phone = $request->contact_phone;
+ $jobCircular->contact_email = $request->contact_email;
+
+
+ $jobCircular->save();
+
+
+ return redirect()->back()->with('success','Successfully created Job circular form!');
+
+
+
+}
+
+public function view_existing_job_circular(){
+
+
+
+ $job_circular_data=Job_circular::all();
+
+
+ return view('manager.view_job_circular',compact('job_circular_data'));
+
+
+}
+
+public function update_existing_job_circular($id){
+
+
+ $existing_job_circular_data=Job_circular::find($id);
+
+
+ return view('manager.update_exisitng_job_circular',compact('existing_job_circular_data'));
+
+}
+
+public function update_existing_job_circular_form(Request $request,$id){
+
+
+    $jobCircular =Job_circular::find($id);
+
+    $request->validate([
+
+               'job_title'=>'required|string',
+               'company_name'=>'required|string',
+               'employment_type' => 'required|string',
+               'salary' => 'required|string',
+               'application_deadline' => 'required|date',
+               'company_description' => 'required|string',
+               'responsibilities' => 'required|string',
+               'requirements' => 'required|string',
+               'skills_required' => 'required|string',
+               'contact_address' => 'required|string',
+               'contact_phone' => 'required|numeric',
+               'contact_email' => 'required|email',
+
+    ]);
+
+    $jobCircular->job_title=$request->job_title;
+    $jobCircular->company_name=$request->company_name;
+    $jobCircular->job_location = $request->job_location;
+    $jobCircular->employment_type = $request->employment_type;
+    $jobCircular->salary_range = $request->salary;
+    $jobCircular->application_deadline = $request->application_deadline;
+    $jobCircular->company_description = $request->company_description;
+    $jobCircular->responsibilities = $request->responsibilities;
+    $jobCircular->requirements = $request->requirements;
+    $jobCircular->skills_required = $request->skills_required;
+    $jobCircular->contact_address = $request->contact_address;
+    $jobCircular->contact_phone = $request->contact_phone;
+    $jobCircular->contact_email = $request->contact_email;
+
+
+    $jobCircular->save();
+
+
+    return redirect()->back()->with('success','Successfully updated Job circular form!');
+
+
+
+}
+
+
+
+public function delete_existing_job_circular($id){
+
+
+ $delete_job_circular_data=Job_circular::find($id);
+
+$delete_job_circular_data->delete();
+
+return redirect()->back();
 
 }
 
