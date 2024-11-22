@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\None_employeeController;
 use Illuminate\Database\Capsule\Manager;
 
 Route::get('/', function () {
@@ -44,7 +45,9 @@ Route::get('/view_all_job_circular',[ManagerController::class,'view_existing_job
 Route::get('/update_job_circular/{id}',[ManagerController::class,'update_existing_job_circular']);
 Route::post('/update_existing_job_circular_form/{id}',[ManagerController::class,'update_existing_job_circular_form']);
 Route::get('/delete_job_circular/{id}',[ManagerController::class,'delete_existing_job_circular']);
-
+Route::get('/view_all_job_circular_none_employee',[None_employeeController::class,'view_existing_job_circular']);
+Route::get('/view_full_circular_none_employee/{id}',[None_employeeController::class,'view_full_circular_none_employee_user']);
+Route::get('/apply_job_none_employee/{id}',[None_employeeController::class,'view_job_application_none_employee']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

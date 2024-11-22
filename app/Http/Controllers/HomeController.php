@@ -23,6 +23,15 @@ if($usertype=='user')
 else if ($usertype=='manager')
 {
     return view('manager.dashboard');
+
+}
+
+else if ($usertype='none_employee')
+{
+
+  return view('none_employee.dashboard');
+
+
 }
 
 else {
