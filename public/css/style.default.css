@@ -11,13 +11,26 @@ Dark Admin Bootstrap Template by Bootstrapious.com
 * ==========================================================
 *     GENERAL STYLING
 * ==========================================================
-*/
+*//* Style the scrollbar itself */
 
+/* Target the vertical scrollbar */
 
-
+html {
+    overflow: hidden; /* Disable scrolling */
+    margin: 0;
+    padding: 0;
+  }
 body {
-  position: relative;
-}
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+margin-top: 50px;
+  }
+
+
+
 
 section {
   padding: 0 1rem;
@@ -225,12 +238,12 @@ pre {
 }
 
 .page-content {
-  position: relative;
-  background: #22252a;
-  min-height: 100vh;
+    height: 100vh;
+
+    overflow-y: auto;
+    background: #22252a;
   width: calc(100% - 280px);
   padding: 0;
-  padding-bottom: 70px;
 }
 
 .page-content.active {
@@ -399,10 +412,13 @@ i[class*='icon-'] {
 nav.navbar {
   background: #2d3035;
   color: #8a8d93;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #34373d;
-  z-index: 10;
+
+ z-index: 1000;
+  position: fixed;
+  top: 0;  /* Ensure it is at the top of the screen */
+  left: 0;
+  width: 100%;
+
 }
 
 nav.navbar .sidebar-toggle {
@@ -416,6 +432,7 @@ nav.navbar .sidebar-toggle {
   font-size: 1.1rem;
   border: 2px solid #3d4148;
   outline: none;
+
 }
 
 nav.navbar a {
@@ -721,8 +738,20 @@ nav#sidebar {
   background: #2d3035;
   color: #6a6c70;
   border-right: 1px solid #34373d;
+  top: auto;
+  left: 0;
+
+  flex-direction: column;
+
+  height: 100vh;
+  overflow-y: hidden; /* Enable vertical scrolling in the sidebar */
+
+  overflow-y: auto; /* Enable vertical scrolling in the sidebar */
   /* shrinked navbar */
 }
+nav#sidebar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Edge */
+  }
 
 nav#sidebar a {
   color: inherit;

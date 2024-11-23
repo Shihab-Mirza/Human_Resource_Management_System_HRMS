@@ -47,7 +47,12 @@ Route::post('/update_existing_job_circular_form/{id}',[ManagerController::class,
 Route::get('/delete_job_circular/{id}',[ManagerController::class,'delete_existing_job_circular']);
 Route::get('/view_all_job_circular_none_employee',[None_employeeController::class,'view_existing_job_circular']);
 Route::get('/view_full_circular_none_employee/{id}',[None_employeeController::class,'view_full_circular_none_employee_user']);
-Route::get('/apply_job_none_employee/{id}',[None_employeeController::class,'view_job_application_none_employee']);
+Route::get('/apply_job_none_employee/{id}',[None_employeeController::class,'apply_job_application_none_employee']);
+
+Route::post('/submit_job_application',[None_employeeController::class,'submit_job_application_form']);
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

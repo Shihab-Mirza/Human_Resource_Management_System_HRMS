@@ -55,7 +55,6 @@
     <ul class="list-unstyled">
         <li><a href="#"> <i class="icon-writing-whiteboard"></i>1</a></li>
         <li><a href="#"> <i class="icon-chart"></i>2</a></li>
-        <li><a href="#"> <i class="icon-chart"></i>3</a></li>
 
     </ul>
 </nav>
