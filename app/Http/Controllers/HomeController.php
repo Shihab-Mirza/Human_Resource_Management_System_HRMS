@@ -15,22 +15,23 @@ if (Auth::id() )
 
 $usertype=Auth::User()->usertype;
 
-if($usertype=='user')
-
-{
-    return view('user.dashboard'); }
-
-else if ($usertype=='manager')
+ if ($usertype=='manager')
 {
     return view('manager.dashboard');
 
 }
 
-else if ($usertype='none_employee')
+else if ($usertype=='none_employee')
 {
 
   return view('none_employee.dashboard');
 
+
+}
+else if ($usertype=='employee')
+{
+
+  return view('employee.dashboard');
 
 }
 

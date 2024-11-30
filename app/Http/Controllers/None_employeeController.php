@@ -36,20 +36,20 @@ return view('none_employee.view_full_job_circular_non_employee',compact('existin
 
 public function apply_job_application_none_employee($id){
 
+$data=Job_circular::find($id);
 
-
-return view('none_employee.apply_for_job_application');
+return view('none_employee.apply_for_job_application',compact('data'));
 
 }
 
 
 
-public function submit_job_application_form (Request $request){
+public function submit_job_application_form (Request $request,$id){
 
 
-$data = new None_employee;
 
-$request->validate([
+
+    $request->validate([
 
     'first_name' => 'required|string',
     'last_name' => 'required|string',
@@ -64,7 +64,19 @@ $request->validate([
 
 ]);
 
-$date=carbon::now()->format('d-m-y');
+$existingApplication = None_employee::where('job_circular_id', $id)
+->first();
+
+if ($existingApplication) {
+
+return redirect()->back()->with('submission_error', 'You have already applied for this job!');
+}
+
+
+
+
+$data = new None_employee;
+$date=carbon::now()->format('y-m-d');
 
 $random_number= random_int(200000,500000);
 
@@ -81,6 +93,13 @@ $data->phone = $request->phone;
 $data->address = $request->address;
 $data->city = $request->city;
 $data->position = $request->position;
+
+$data->job_circular_id=$id;
+
+if ($request->hasFile('cv')) {
+    $cvPath = $request->file('cv')->store('Cv_file');
+    $data->cv_path = $cvPath;
+}
 
 if($request->hasFile('cv')){
 
@@ -103,8 +122,36 @@ $data->save();
 
 return redirect()->back()->with('success','Job application submitted successfully!');
 
+    }
+
+
+
+public function check_job_application_status(){
+
+
+$data=None_employee::get();
+
+
+return view('none_employee.view_job_application_status',compact('data'));
+
+
+
+
+
+
 
 
 
 }
+
+
+
+
+
+
+
 }
+
+
+
+

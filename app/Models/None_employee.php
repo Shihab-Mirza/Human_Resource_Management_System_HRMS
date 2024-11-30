@@ -20,6 +20,7 @@ protected $fillable = [
    ' city',
     'position',
     'cv_file',
+    'cv_path'
 
 
 ];

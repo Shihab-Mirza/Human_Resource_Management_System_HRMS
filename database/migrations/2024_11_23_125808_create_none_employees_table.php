@@ -22,9 +22,12 @@ return new class extends Migration
             $table->string('address');
             $table->string( 'city');
             $table->string( 'position');
+            $table->string('cv_path');
             $table->string('cv_file');
             $table->bigInteger('cv_application_id')->unique();
             $table->date('application_date');
+            $table->string('status')->default('pending');
+            $table->bigInteger('job_circular_id');
             $table->timestamps();
         });
     }

@@ -38,7 +38,7 @@
             <ul id="recruitment_drop_down" class="collapse list-unstyled">
                 <li><a href="{{ url('view_all_job_circular') }}">View Job Circular</a></li>
                 <li><a href="{{ url('create_job_circular') }}">Create Job Circular</a></li>
-                <li><a href="{{ url('#') }}">View new recruitment application</a></li>
+                <li><a href="{{ url('view_job_appliation') }}">View new recruitment application</a></li>
             </ul>
         </li>
         <li><a href="#"> <i class="icon-logout"></i>Performance Feedback</a></li>

@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Job Application Form</title>
+    <title>Leave Application Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="your-path-to-css-file.css"> <!-- Link to your CSS file -->
-    @include ('none_employee.css')
+    @include('employee.css')
     <style>
         /* General Styles */
-        .job-application-form {
+        .leave-form {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
         }
 
-        .job-application-form-container {
+        .leave-form-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -26,7 +26,7 @@
             overflow: hidden; /* Prevent overflow */
         }
 
-        .job-application-form-title {
+        .leave-form-title {
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
@@ -64,21 +64,18 @@
         }
 
         input[type="text"],
+        input[type="email"],
         input[type="date"],
         input[type="tel"],
-        input[type="email"],
         input[type="number"],
-        input[type="numeric"],
-        select {
+        select,
+        textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
-        }
 
-        input[type="file"] {
-            padding: 3px;
         }
 
         .submit-button-field {
@@ -109,21 +106,21 @@
         }
     </style>
 </head>
-<body class="job-application-form-full">
+<body class="leave-form-full">
     <main class="scrollable-content">
-    @include('none_employee.navigation')
-    @include('none_employee.sidebar')
+    @include('employee.navigation')
+    @include('employee.sidebar')
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <div class="job-application-form-container">
-                    <h1 class="job-application-form-title">Job Application Form</h1>
+                <div class="leave-form-container">
+                    <h1 class="leave-form-title">Leave Application Form</h1>
+
+                    <!-- Success or Error Messages -->
                     @if(session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
-                    @if(session('submission_error'))
-                    <div class="alert alert-danger">{{ session('submission_error') }}</div>
-                    @endif
+
                     @if($errors->all())
                     <div class="alert alert-danger">
                         <ul>
@@ -134,89 +131,67 @@
                     </div>
                     @endif
 
-                    <form class="job-application-form" action="{{ url('submit_job_application',$data->id) }}" method="post" enctype="multipart/form-data">
+                    <form class="leave-form" action="{{ url('submit_leave_application') }}" method="post">
                         @csrf
-                        <fieldset class="personal-info-fieldset">
-                            <legend class="personal-info-legend">Personal Information</legend>
+
+                        <!-- Employee Details -->
+                        <fieldset class="employee-details-fieldset">
+                            <legend class="employee-details-legend">Employee Details</legend>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="first-name">First Name:</label>
-                                    <input type="text" name="first_name" required value="{{ old('first_name') }}">
+                                    <label for="employee-name">Employee Name:</label>
+                                    <input type="text" name="employee_name" required value="{{ old('employee_name') }}">
                                 </div>
                                 <div class="form-field">
-                                    <label for="last-name">Last Name:</label>
-                                    <input type="text" name="last_name" required value="{{ old('last_name') }}">
+                                    <label for="employee-id">Employee ID:</label>
+                                    <input type="text" name="employee_id" required value="{{ old('employee_id') }}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="dob">Date of Birth:</label>
-                                    <input type="date" name="dob" required>
-                                </div>
-                                <div class="form-field">
-                                    <label for="gender">Gender:</label>
-                                    <select name="gender" required>
-                                        <option value="">Select Gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
+                                    <label for="leave-type">Leave Type:</label>
+                                    <select name="leave_type" required>
+                                        <option value="Sick Leave" >Sick Leave</option>
+                                        <option value="Casual Leave">Casual Leave</option>
+                                        <option value="Annual Leave" >Annual Leave</option>
                                     </select>
                                 </div>
-                            </div>
-                        </fieldset>
+                                <div class="form-field">
+                                    <label for="leave-dates">Leave start Date:</label>
+                                    <input type="date" name="leave_start_date" required value="{{ old('leave_start_date') }}">
 
-                        <fieldset class="contact-info-fieldset">
-                            <legend class="contact-info-legend">Contact Information</legend>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="email">Email:</label>
-                                    <input type="email" name="email" required value="{{ old('email') }}">
                                 </div>
                                 <div class="form-field">
-                                    <label for="phone">Phone Number:</label>
-                                    <input type="numeric" name="phone" required value="{{ old('phone') }}">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="address">Address:</label>
-                                    <input type="text" name="address" required value="{{ old('address') }}">
-                                </div>
-                                <div class="form-field">
-                                    <label for="city">City:</label>
-                                    <input type="text" name="city" required value="{{ old('city') }}">
+                                    <label for="leave-dates">Leave End Date:</label>
+                                    <input type="date" name="leave_end_date" required value="{{ old('leave_end_date') }}">
                                 </div>
                             </div>
                         </fieldset>
 
-                        <fieldset class="employment-info-fieldset">
-                            <legend class="employment-info-legend">Employment Information</legend>
+                        <!-- Leave Application Details -->
+                        <fieldset class="leave-details-fieldset">
+                            <legend class="leave-details-legend">Leave Application Details</legend>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="position">Position Applying For:</label>
-                                    <input type="text" id="position" name="position" required value="{{ old('position') }}">
+                                    <label for="subject">Subject:</label>
+                                    <input type="text" name="subject" required value="{{ old('subject') }}">
                                 </div>
                             </div>
-                        </fieldset>
-
-                        <fieldset class="cv-upload-fieldset">
-                            <legend class="cv-upload-legend">Upload CV</legend>
-                            <div class="form-row">
-                                <div class="form-field">
-                                    <label for="cv">Upload your CV (PDF, DOC, DOCX):</label>
-                                    <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
-                                </div>
+                            <div class="form-field">
+                                <label for="application">Application:</label>
+                                <textarea name="application" id="application" rows="5" required>{{ old('application') }}</textarea>
                             </div>
                         </fieldset>
 
                         <div class="submit-button-field">
-                            <button type="submit" class="submit-button">Submit Application</button>
+                            <button type="submit" class="submit-button">Submit Leave Application</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    @include('none_employee.js')
-</main>
+    @include('employee.js')
+    </main>
 </body>
 </html>

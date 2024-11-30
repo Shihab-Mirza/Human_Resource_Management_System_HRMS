@@ -15,7 +15,7 @@
                 <i class="icon-windows"></i>new recruitment</a>
             <ul id="recruitment_drop_down" class="collapse list-unstyled">
                 <li><a href="{{ url('view_all_job_circular_none_employee') }}">View Job Circular</a></li>
-                <li><a href="{{ url('#') }}">View Application Status</a></li>
+                <li><a href="{{ url('view_application_status') }}">View Application Status</a></li>
 
             </ul>
         </li>

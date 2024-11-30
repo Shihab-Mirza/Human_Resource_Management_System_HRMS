@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\Job_circular;
 Use App\Models\Payroll;
 USE App\Models\Notice;
+USE App\Models\None_employee;
 
 
 class ManagerController extends Controller
@@ -403,7 +404,65 @@ return redirect()->back();
 
 
 
+public function view_applied_job_application ()
+{
+
+
+ $data = None_employee::get();
+
+ return view('manager.view_new_job_application',compact('data'));
+
+
+
+
+
 }
+
+
+
+
+
+public function view_new_job_application($id){
+
+
+$data=None_employee::find($id);
+
+
+return view('manager.view_submitted_job_application',compact('data'));}
+
+
+public function change_job_applications_status(Request $request,$id){
+
+
+$data=None_employee::find($id);
+
+if ($request->has('accepted')) {
+
+    $data->status = 'accepted';
+} if ($request->has('rejected')) {
+
+    $data->status = 'rejected'; }
+
+
+    $data->save();
+
+return redirect()->back()->with('success','Status changed sucessfully!');
+}
+
+public function delete_existing_job_application($id){
+
+
+    $delete_job_application_data=None_employee::find($id);
+
+   $delete_job_application_data->delete();
+
+   return redirect()->back();
+
+   }
+
+}
+
+
 
 
 
