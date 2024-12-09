@@ -34,10 +34,15 @@ else if ($usertype=='employee')
   return view('employee.dashboard');
 
 }
+else if($usertype=='department_manager')
+{
+
+return view('dp_manager.dashboard');
+
+}
 
 else {
     return view ('admin.dashboard');
 }
-
 
 }}

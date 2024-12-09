@@ -34,5 +34,11 @@ return $this->hasOne(Payroll::class,'employee_id');
 
 }
 
+public function attendances()
+{
+    return $this->hasMany(Attendance::class,'employee_id');
+}
+
+
 
 }

@@ -460,6 +460,24 @@ public function delete_existing_job_application($id){
 
    }
 
+
+
+
+
+   public function new_employee_registration()
+
+{
+
+
+return view ('manager.register');
+
+
+
+
+
+}
+
+
 }
 
 

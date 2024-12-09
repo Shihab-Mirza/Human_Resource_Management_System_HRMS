@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\None_employeeController;
 use App\Http\Controllers\employeeController;
+use App\Http\Controllers\Department_manager;
+
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Manager as SupportManager;
 
@@ -65,11 +67,16 @@ Route::post( '/submit_job_application/{id}',[None_employeeController::class,'sub
 Route::get('/view_application_status',[None_employeeController::class,'check_job_application_status']);
 
 
-
+Route::get('/Register_employee',[managerController::class,'new_employee_registration']);
 
 Route::get('/view_notice_board_employee',[EmployeeController::class,'check_notice']);
 
 Route::get('/Apply_for_leave',[EmployeeController::class,'create_leave_application']);
+
+
+Route::get('/give_attendance',[Department_manager::class,'view_attendance_sheet']);
+Route::post('/submit_attendance',[Department_manager::class,'submit_attendance_sheet']);
+
 
 
 

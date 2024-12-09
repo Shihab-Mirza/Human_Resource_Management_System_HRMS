@@ -20,6 +20,8 @@
                 <li><a href="{{ url('view_employee/finance') }}">Finance</a></li>
                 <li><a href="{{ url('view_employee/marketing') }}">Marketing</a></li>
                 <li><a href="{{ url('add_new_employee') }}">Add New Employee</a></li>
+                <li><a href="{{ url('Register_employee') }}">Register Employee</a></li>
+
             </ul>
         </li>
         <li>
