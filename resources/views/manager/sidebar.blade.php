@@ -30,7 +30,7 @@
             </a>
             <ul id="attendence_drop_down" class="collapse list-unstyled">
                 <li><a href="#">Attendance and time tracking</a></li>
-                <li><a href="#">Leave applications</a></li>
+                <li><a href="{{ url('view_leave_application_of_employees') }}">Leave applications</a></li>
             </ul>
         </li>
         <li><a href="{{ url('payroll_management') }}"> <i class="icon-grid"></i>Payroll management </a></li>

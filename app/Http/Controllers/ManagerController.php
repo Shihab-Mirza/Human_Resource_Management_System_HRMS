@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Job_circular;
+use App\Models\Leave_application;
 Use App\Models\Payroll;
 USE App\Models\Notice;
 USE App\Models\None_employee;
@@ -476,6 +477,56 @@ return view ('manager.register');
 
 
 }
+
+
+
+public function view_leave_applications()
+{
+
+$data = Leave_application::all();
+return view('manager.view_leave_application',compact('data'));
+
+
+}
+
+public function view_full_leave_applications($id){
+
+
+$leaveApplication=Leave_application::findOrFail($id);
+
+
+return view('manager.view_full_leave_application',compact('leaveApplication'));
+
+
+
+
+
+}
+
+
+public function change_leave_applications_status(Request $request,$id){
+
+
+    $leaveApplication=Leave_application::findOrFail($id);
+
+    if ($request->has('accepted')) {
+
+        $leaveApplication->status = 'accepted';
+    } if ($request->has('rejected')) {
+
+        $leaveApplication->status = 'rejected'; }
+        $leaveApplication->additional_notes=$request->additional_notes;
+
+        $leaveApplication->save();
+
+    return redirect()->back()->with('success','Status changed sucessfully!');
+    }
+
+
+
+
+
+
 
 
 }

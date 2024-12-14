@@ -77,7 +77,20 @@ Route::get('/Apply_for_leave',[EmployeeController::class,'create_leave_applicati
 Route::get('/give_attendance',[Department_manager::class,'view_attendance_sheet']);
 Route::post('/submit_attendance',[Department_manager::class,'submit_attendance_sheet']);
 
+Route::get('/view_notice_board_dp_manager',[Department_manager::class,'view_notice']);
+Route::get('/apply_for_leave_dp',[Department_manager::class,'apply_for_leave']);
+Route::post('/submit_leave_application',[employeeController::class,'submit_leave']);
+Route::post('/submit_leave_application_dp',[Department_manager::class,'submit_leave_dp']);
 
+Route::get('/view_full_leave/{id}',[ManagerController::class,'view_full_leave_applications']);
+
+Route::post( '/change_leave_application_status/{id}',[ManagerController::class,'change_leave_applications_status']);
+
+Route::get('/view_leave_application_of_employees',[ManagerController::class,'view_leave_applications']);
+
+Route::get('/view_leave_status',[EmployeeController::class,'view_leave_application_status']);
+
+Route::get('/view_leave_status_dp',[Department_manager::class,'view_leave_application_status_dp']);
 
 
 });

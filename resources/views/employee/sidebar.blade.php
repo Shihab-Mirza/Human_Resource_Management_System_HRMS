@@ -13,6 +13,7 @@
     <ul class="list-unstyled">
         <li><a href="{{ url('view_notice_board_employee') }}"> <i class="icon-writing-whiteboard"></i>Notice board</a></li>
         <li><a href="{{ url('Apply_for_leave') }}"> <i class="icon-chart"></i>leave application</a></li>
+        <li><a href="{{ url('view_leave_status') }}"> <i class="icon-chart"></i>View leave application status</a></li>
 
     </ul>
 </nav>

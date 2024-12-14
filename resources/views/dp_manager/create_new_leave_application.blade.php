@@ -6,7 +6,7 @@
     <title>Leave Application Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="your-path-to-css-file.css"> <!-- Link to your CSS file -->
-    @include('employee.css')
+    @include('dp_manager.css')
     <style>
         /* General Styles */
         .leave-form {
@@ -101,15 +101,15 @@
         /* Responsive Styles */
         @media (max-width: 600px) {
             .form-field {
-                min-width: 100%; /* Full width on small screens */
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body class="leave-form-full">
     <main class="scrollable-content">
-    @include('employee.navigation')
-    @include('employee.sidebar')
+    @include('dp_manager.navigation')
+    @include('dp_manager.sidebar')
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
@@ -130,7 +130,7 @@
                     </div>
                     @endif
 
-                    <form class="leave-form" action="{{ url('submit_leave_application') }}" method="post">
+                    <form class="leave-form" action="{{ url('submit_leave_application_dp') }}" method="post">
                         @csrf
 
                         <fieldset class="employee-details-fieldset">
@@ -188,7 +188,7 @@
             </div>
         </div>
     </div>
-    @include('employee.js')
+    @include('dp_manager.js')
     </main>
 </body>
 </html>
