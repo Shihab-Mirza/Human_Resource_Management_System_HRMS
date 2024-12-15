@@ -96,6 +96,9 @@ Route::get( '/view_employees_for_performence_feedback',[Department_manager_Contr
 
 Route::get( '/give_performence_feedback/{id}',[Department_manager_Controller::class,'view_employees_performence_feeback_form']);
 
+
+Route::post( '/save_performence_feedback/{id}',[Department_manager_Controller::class,'save_performence_feedback_data']);
+
 });
 
 

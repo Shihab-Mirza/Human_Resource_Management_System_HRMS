@@ -7,6 +7,7 @@ use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Models\Notice;
 use App\Models\Leave_application;
+use App\Models\Performence_feedback;
 use Illuminate\Support\Facades\Auth;
 
 class Department_manager_Controller extends Controller
@@ -172,15 +173,68 @@ public function view_employees_performence_feeback_form($id){
 $data=Employee::find($id);
 
 
-return view('dp_manager.view_performence_feedback_form',compact('data'));
+return view('dp_manager.give_performence_feedback',compact('data'));
 
+
+}
+
+public function save_performence_feedback_data(Request $request,$id){
+
+$data1 = Performence_feedback::where('month',$request->month)->where('employee_id',$id)->where('year',$request->year)->exists();
+
+if($data1)
+
+{
+
+
+    return redirect()->back()->with('error', 'Performance feedback already submitted for the month or year!');
 
 
 
 
 }
 
+$request->validate([
+        'job_knowledge' => 'required|string',
+        'quality_of_work' => 'required|string',
+        'attendance' => 'required|string',
+        'communication' => 'required|string',
+        'strengths' => 'nullable|string',
+        'areas_of_improvement' => 'nullable|string',
+        'overall_score' => 'required|integer|min:0|max:100',
+        'additional_comments' => 'nullable|string',
+        'month' => 'required|string',
+        'year' => 'required|integer|digits:4|min:2024',
+    ]);
 
+
+    $feedback = new Performence_feedback;
+    $feedback->employee_id = $id;
+    $feedback->job_knowledge = $request->job_knowledge;
+    $feedback->quality_of_work = $request->quality_of_work;
+    $feedback->attendance = $request->attendance;
+    $feedback->communication = $request->communication;
+    $feedback->strengths = $request->strengths;
+    $feedback->areas_of_improvement = $request->areas_of_improvement;
+    $feedback->overall_score = $request->overall_score;
+    $feedback->additional_comments = $request->additional_comments;
+    $feedback->month = $request->month;
+    $feedback->year = $request->year;
+
+    $feedback->save();
+
+    return redirect()->back()->with('success', 'Performance feedback submitted successfully!');
+
+
+
+
+
+
+
+
+
+
+}
 
 
    }
@@ -190,6 +244,6 @@ return view('dp_manager.view_performence_feedback_form',compact('data'));
 
 
 
-}
+
 
 

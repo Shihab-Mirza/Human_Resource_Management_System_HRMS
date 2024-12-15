@@ -40,5 +40,8 @@ public function attendances()
 }
 
 
+public function Performence_feedbacks(){
 
+    return $this->hasMany(Performence_feedback::class);
+}
 }
