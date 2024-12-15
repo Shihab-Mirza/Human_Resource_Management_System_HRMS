@@ -142,7 +142,7 @@ input[type="file"] {
 </style>
   </head>
   <body>
-@include ('manager.navigation');
+@include ('manager.navigation')
 @include('manager.sidebar')
       <div class="page-content">
         <div class="page-header">

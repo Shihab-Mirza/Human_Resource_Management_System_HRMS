@@ -13,7 +13,7 @@ public function index_home(){
 
 if (Auth::id() )
 
-$usertype=Auth::User()->usertype;
+$usertype=Auth::user()->usertype;
 
  if ($usertype=='manager')
 {
@@ -34,7 +34,7 @@ else if ($usertype=='employee')
   return view('employee.dashboard');
 
 }
-else if($usertype=='department_manager')
+else if($usertype=='production_department_manager'||  $usertype=='finance_department_manager'||$usertype=='marketing_department_manager')
 {
 
 return view('dp_manager.dashboard');

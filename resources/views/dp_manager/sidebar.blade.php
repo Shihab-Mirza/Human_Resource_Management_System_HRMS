@@ -12,7 +12,7 @@
 
     <ul class="list-unstyled">
         <li><a href="{{ url('give_attendance') }}"> <i class="icon-chart"></i>Attendence management</a></li>
-        <li><a href="{{ url('give_performence_feedback') }}"> <i class="icon-chart"></i>performence feedback</a></li>
+        <li><a href="{{ url('view_employees_for_performence_feedback') }}"> <i class="icon-chart"></i>performence feedback</a></li>
         <li><a href="{{ url('view_notice_board_dp_manager') }}"> <i class="icon-writing-whiteboard"></i>Notice board</a></li>
         <li><a href="{{ url('apply_for_leave_dp') }}"> <i class="icon-chart"></i>leave application</a></li>
         <li><a href="{{ url('view_leave_status_dp') }}"> <i class="icon-chart"></i>View leave application status</a></li>

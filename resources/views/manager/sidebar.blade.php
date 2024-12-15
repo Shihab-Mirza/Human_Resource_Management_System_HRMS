@@ -36,7 +36,7 @@
         <li><a href="{{ url('payroll_management') }}"> <i class="icon-grid"></i>Payroll management </a></li>
         <li>
             <a href="#recruitment_drop_down" aria-expanded="false" data-toggle="collapse">
-                <i class="icon-windows"></i>new recruitment</a>
+                <i class="icon-windows"></i>Recruitment management</a>
             <ul id="recruitment_drop_down" class="collapse list-unstyled">
                 <li><a href="{{ url('view_all_job_circular') }}">View Job Circular</a></li>
                 <li><a href="{{ url('create_job_circular') }}">Create Job Circular</a></li>

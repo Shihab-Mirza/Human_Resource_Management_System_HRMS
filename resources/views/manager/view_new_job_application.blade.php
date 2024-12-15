@@ -43,6 +43,7 @@
 
             <table>
                 <tr>
+                    <th>SI</th>
                     <th>Application ID</th>
                     <th>Name</th>
                     <th>Position</th>
@@ -51,8 +52,9 @@
                     <th>View full application</th>
                     <th>Delete action</th>
                 </tr>
-                @foreach($data as $data)
+                @foreach($data as $index => $data)
                 <tr>
+                    <td>{{ $index + 1 }}</td>
                     <td>{{ $data->cv_application_id }}</td>
                     <td>{{ $data->first_name }}  {{ $data->last_name }}</td>
                     <td>{{ $data->position }}</td>

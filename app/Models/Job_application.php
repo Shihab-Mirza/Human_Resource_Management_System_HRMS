@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class None_employee extends Model
+class Job_application extends Model
 {
 
 protected $fillable = [
@@ -19,7 +19,6 @@ protected $fillable = [
     'address',
    ' city',
     'position',
-    'cv_file',
     'cv_path'
 
 

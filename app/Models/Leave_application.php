@@ -16,5 +16,6 @@ class Leave_application extends Model
         'subject',
         'application',
         'additional_notes',
+        'auth_email',
     ];
 }

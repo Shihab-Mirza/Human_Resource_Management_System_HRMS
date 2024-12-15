@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\None_employeeController;
 use App\Http\Controllers\employeeController;
-use App\Http\Controllers\Department_manager;
+use App\Http\Controllers\Department_manager_Controller;
 
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Manager as SupportManager;
@@ -74,13 +74,13 @@ Route::get('/view_notice_board_employee',[EmployeeController::class,'check_notic
 Route::get('/Apply_for_leave',[EmployeeController::class,'create_leave_application']);
 
 
-Route::get('/give_attendance',[Department_manager::class,'view_attendance_sheet']);
-Route::post('/submit_attendance',[Department_manager::class,'submit_attendance_sheet']);
+Route::get('/give_attendance',[Department_manager_Controller::class,'view_attendance_sheet']);
+Route::post('/submit_attendance',[Department_manager_Controller::class,'submit_attendance_sheet']);
 
-Route::get('/view_notice_board_dp_manager',[Department_manager::class,'view_notice']);
-Route::get('/apply_for_leave_dp',[Department_manager::class,'apply_for_leave']);
+Route::get('/view_notice_board_dp_manager',[Department_manager_Controller::class,'view_notice']);
+Route::get('/apply_for_leave_dp',[Department_manager_Controller::class,'apply_for_leave']);
 Route::post('/submit_leave_application',[employeeController::class,'submit_leave']);
-Route::post('/submit_leave_application_dp',[Department_manager::class,'submit_leave_dp']);
+Route::post('/submit_leave_application_dp',[Department_manager_Controller::class,'submit_leave_dp']);
 
 Route::get('/view_full_leave/{id}',[ManagerController::class,'view_full_leave_applications']);
 
@@ -90,8 +90,11 @@ Route::get('/view_leave_application_of_employees',[ManagerController::class,'vie
 
 Route::get('/view_leave_status',[EmployeeController::class,'view_leave_application_status']);
 
-Route::get('/view_leave_status_dp',[Department_manager::class,'view_leave_application_status_dp']);
+Route::get('/view_leave_status_dp',[Department_manager_Controller::class,'view_leave_application_status_dp']);
 
+Route::get( '/view_employees_for_performence_feedback',[Department_manager_Controller::class,'view_employees_list_performence_feedback_dp']);
+
+Route::get( '/give_performence_feedback/{id}',[Department_manager_Controller::class,'view_employees_performence_feeback_form']);
 
 });
 

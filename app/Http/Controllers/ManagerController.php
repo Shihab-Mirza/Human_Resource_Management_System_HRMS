@@ -8,7 +8,7 @@ use App\Models\Job_circular;
 use App\Models\Leave_application;
 Use App\Models\Payroll;
 USE App\Models\Notice;
-USE App\Models\None_employee;
+USE App\Models\Job_application;
 
 
 class ManagerController extends Controller
@@ -36,7 +36,17 @@ return  view('manager.dashboard');
    $request->validate([
     'employee_email'=> 'required|email||unique:employee,email',
     'phone'=> 'required|unique:employee,phone_number',
-
+    'first_name' => 'required|string',
+    'last_name' => 'required|string',
+    'dob' => 'required|date',
+    'gender' => 'required|string',
+    'address' => 'required|string',
+    'city' => 'required|string',
+    'country' => 'required|string',
+    'department' => 'required|string',
+    'position' => 'required|string',
+    'joining_date' => 'required|date',
+    'employee_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
    ]);
 
 
@@ -59,7 +69,15 @@ return  view('manager.dashboard');
 } while (Employee::where('employee_unique_id', $randomNumber)->exists());
 
 $data->employee_unique_id = $randomNumber;
+$imagePath = null;
+if ($request->hasFile('employee_image')) {
+    $image = $request->file('employee_image');
 
+    $imageName = $randomNumber . '.' . $image->getClientOriginalExtension();
+
+    $imagePath = $image->storeAs('images', $imageName, 'public');
+}
+   $data->employee_image = $imagePath;
    $data->save();
 
    $payroll_data->employee_id=$data->id;
@@ -409,7 +427,7 @@ public function view_applied_job_application ()
 {
 
 
- $data = None_employee::get();
+ $data = Job_application::get();
 
  return view('manager.view_new_job_application',compact('data'));
 
@@ -426,7 +444,7 @@ public function view_applied_job_application ()
 public function view_new_job_application($id){
 
 
-$data=None_employee::find($id);
+$data=Job_application::find($id);
 
 
 return view('manager.view_submitted_job_application',compact('data'));}
@@ -435,7 +453,7 @@ return view('manager.view_submitted_job_application',compact('data'));}
 public function change_job_applications_status(Request $request,$id){
 
 
-$data=None_employee::find($id);
+$data=Job_application::find($id);
 
 if ($request->has('accepted')) {
 
@@ -453,7 +471,7 @@ return redirect()->back()->with('success','Status changed sucessfully!');
 public function delete_existing_job_application($id){
 
 
-    $delete_job_application_data=None_employee::find($id);
+    $delete_job_application_data=Job_application::find($id);
 
    $delete_job_application_data->delete();
 

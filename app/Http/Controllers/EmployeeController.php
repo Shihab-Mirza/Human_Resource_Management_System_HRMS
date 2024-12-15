@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Leave_application;
 use App\Models\Notice;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 
 class EmployeeController extends Controller
 {
@@ -58,6 +59,7 @@ $data=new Leave_application;
      $randomNumber = random_int(5000000, 9999999);
  } while (Leave_application::where('leave_application_id', $randomNumber)->exists());
  $data->leave_application_id=$randomNumber;
+ $data->auth_email=Auth::user()->email;
  $data->save();
 
     return redirect()->back()->with('success', 'Leave application submitted successfully!');
@@ -67,7 +69,9 @@ $data=new Leave_application;
 
 public function view_leave_application_status(){
 
-$data=Leave_application::all();
+    $data1=Auth::user()->email;
+
+$data=Leave_application::where('auth_email',$data1)->get();
 
 return view('employee.view_applied_leave_application',compact('data'));
 

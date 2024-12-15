@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Job_circular;
-use App\Models\None_employee;
+use App\Models\Job_application;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class None_employeeController extends Controller
 {
@@ -63,9 +65,11 @@ public function submit_job_application_form (Request $request,$id){
     'email' => 'required|email',
 
 ]);
+$data1=Auth::user()->email;
 
-$existingApplication = None_employee::where('job_circular_id', $id)
-->first();
+$existingApplication = Job_application::where('job_circular_id', $id)
+        ->where('auth_email', $data1)
+        ->first();
 
 if ($existingApplication) {
 
@@ -75,7 +79,7 @@ return redirect()->back()->with('submission_error', 'You have already applied fo
 
 
 
-$data = new None_employee;
+$data = new Job_application;
 $date=carbon::now()->format('y-m-d');
 
 $random_number= random_int(200000,500000);
@@ -96,26 +100,22 @@ $data->position = $request->position;
 
 $data->job_circular_id=$id;
 
+  $cvpath = null;
 if ($request->hasFile('cv')) {
-    $cvPath = $request->file('cv')->store('Cv_file');
-    $data->cv_path = $cvPath;
+    $cv = $request->file('cv');
+
+    $cv_file = $random_number . '.' . $cv->getClientOriginalExtension();
+
+    $cvpath = $cv->storeAs('cv_file', $cv_file, 'public');
 }
-
-if($request->hasFile('cv')){
-
- $file=$request->file('cv');
- $filename= $random_number . '.' . $file->getClientOriginalExtension();
-
- $filepath=$file->storeAs('Cv_file',$filename,'public');
+   $data->cv_path = $cvpath;
 
 
 
 
-}
-
-$data->cv_file=$filepath;
 
 
+$data->auth_email=Auth::user()->email;
 
 $data->save();
 
@@ -128,8 +128,9 @@ return redirect()->back()->with('success','Job application submitted successfull
 
 public function check_job_application_status(){
 
+    $data1=Auth::user()->email;
 
-$data=None_employee::get();
+$data=Job_application::where('auth_email',$data1)->get();
 
 
 return view('none_employee.view_job_application_status',compact('data'));

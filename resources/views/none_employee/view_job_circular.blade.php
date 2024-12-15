@@ -42,6 +42,7 @@
             <h2>Job Circular</h2>
             <table>
                 <tr>
+                    <th>SI</th>
                     <th>Job title</th>
                     <th>Employment type</th>
                     <th>Salary range</th>
@@ -49,8 +50,9 @@
                     <th>View Full circular</th>
                     <th>Apply Action</th>
                 </tr>
-                @foreach($job_circular_data as $data)
+                @foreach($job_circular_data as $index => $data)
                 <tr>
+                    <td>{{ $index + 1 }}</td>
                     <td>{{ $data->job_title }}</td>
                     <td>{{ $data->employment_type }}</td>
                     <td>{{ $data->salary_range }}</td>

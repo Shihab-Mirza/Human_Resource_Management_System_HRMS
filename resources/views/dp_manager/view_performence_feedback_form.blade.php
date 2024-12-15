@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
 
-@include('manager.css')
+@include('dp_manager.css')
 
     <style>
  table {
@@ -37,12 +37,12 @@
     </style>
 </head>
 <body>
-@include('manager.navigation')
-@include('manager.sidebar')
+@include('dp_manager.navigation')
+@include('dp_manager.sidebar')
 <div class="page-content">
     <div class="page-header">
         <div class="container-fluid">
-            <h2>{{ $department_name }} department</h2>
+            <h2>{{ $employee_data->first()->department }} department</h2>
             <table>
                 <tr>
                     <th>SI</th>
@@ -50,9 +50,7 @@
                     <th>Employee ID</th>
                     <th>Employee Name</th>
                     <th>Position</th>
-                    <th>View full Profile</th>
-                    <th>Update Profile</th>
-                    <th>Delete Profile</th>
+                    <th>Feedback action</th>
                      </tr>
                 @foreach($employee_data as $index => $employee_data)
                 <tr>
@@ -65,16 +63,14 @@
                     <td>{{ $employee_data->employee_unique_id }}</td>
                     <td>{{ $employee_data->first_name }} {{ $employee_data->last_name }}</td>
                     <td>{{ $employee_data->position }}</td>
-                    <td><a href="{{ url('view_full_profile',$employee_data->id) }}">View</a></td>
-                    <td><a href="{{ url('update_employee_profile',$employee_data->id) }}">Update</a></td>
-                    <td><a href="{{ url("delete_employee_profile",$employee_data->id) }}">Delete</a></td>
+                    <td><a href="{{ url('give_performence_feedback',$employee_data->id) }}">give feedback</a></td>
                 </tr>
                 @endforeach
             </table>
         </div>
     </div>
 </div>
-@include('manager.js')
+@include('dp_manager.js')
 </body>
 
 </html>

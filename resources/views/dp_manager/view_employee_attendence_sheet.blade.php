@@ -102,9 +102,9 @@
 
                         <table class="attendance-table">
                             <thead>
-                                <tr>
-                                    <th>Employee Name</th>
+                                <tr><th>SI</th>
                                     <th>Employee ID</th>
+                                    <th>Employee name</th>
                                     <th>Department</th>
                                     <th>Present</th>
                                     <th>Absent</th>
@@ -112,10 +112,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($employee as $employee)
+                                @foreach($employee as $index=> $employee)
                                     <tr>
-                                        <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
+                                        <td>{{ $index + 1 }}</td>
                                         <td>{{ $employee->employee_unique_id }}</td>
+                                        <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
                                         <td>{{ $employee->department }}</td>
                                         <td>
                                             <input type="radio" name="attendance[{{ $employee->id }}]" value="present" required>

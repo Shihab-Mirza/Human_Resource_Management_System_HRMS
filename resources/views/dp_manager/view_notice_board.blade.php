@@ -45,13 +45,15 @@ td {
             <h2>Notice Board</h2>
              <table>
                 <tr>
+                    <th>SI</th>
                     <th>Tittle</th>
                     <th>To</th>
                     <th>Notice</th>
                     <th>Date Created</th>
                 </tr>
-                @foreach($data as $data)
+                @foreach($data as $index => $data)
                 <tr>
+                    <td>{{$index + 1}}</td>
                  <td>{{$data->title}}</td>
                  <td>{{$data->notice_to}}</td>
                  <td>{{$data->message }}</td>

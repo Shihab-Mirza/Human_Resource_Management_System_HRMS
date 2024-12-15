@@ -162,7 +162,7 @@
                             </div>
                             <div class="form-field">
                                 <label for="profile-photo">Employee Profile Photo:</label>
-                                <input type="file" name="employee_image" accept="image/*">
+                                <input type="file" name="employee_image" accept="image/jpeg, image/png">
                             </div>
                         </fieldset>
 

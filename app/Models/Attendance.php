@@ -11,7 +11,8 @@ class Attendance extends Model
 
     'attendance_date',
     'employee_id',
-     'status'];
+     'status',
+    'auth_email'];
 
     public function employee()
     {

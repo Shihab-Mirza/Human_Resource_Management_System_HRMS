@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('application');
             $table->text('additional_notes')->nullable();
             $table->string('status')->default('pending');
+            $table->string('auth_email')->nullable();
             $table->timestamps();
         });
     }

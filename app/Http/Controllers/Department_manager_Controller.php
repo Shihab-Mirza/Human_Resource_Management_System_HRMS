@@ -7,14 +7,33 @@ use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Models\Notice;
 use App\Models\Leave_application;
-class Department_manager extends Controller
+use Illuminate\Support\Facades\Auth;
+
+class Department_manager_Controller extends Controller
 {
 
 
 public function view_attendance_sheet(){
 
-$employee=Employee::get();
+$usertype=Auth::user()->usertype;
+if ($usertype=='production_department_manager')
+{
+$employee=Employee::where('department','production')->get();
 return view('dp_manager.view_employee_attendence_sheet',compact('employee'));
+
+}
+if ($usertype=='finance_department_manager')
+{
+$employee=Employee::where('department','finance')->get();
+return view('dp_manager.view_employee_attendence_sheet',compact('employee'));
+
+}
+if ($usertype=='marketing_department_manager')
+{
+$employee=Employee::where('department','marketing')->get();
+return view('dp_manager.view_employee_attendence_sheet',compact('employee'));
+
+}
 
 }
 
@@ -22,10 +41,8 @@ public function submit_attendance_sheet(Request $request)
 {
 
     $attendanceDate = $request->input('attendance_date');
-
-    // Check if attendance for this date already exists
-    $existingAttendance = Attendance::where('attendance_date', $attendanceDate)->exists();
-
+    $data1=Auth::user()->email;
+    $existingAttendance = Attendance::where('attendance_date', $attendanceDate)->where('auth_email',$data1)->exists();
     if ($existingAttendance) {
         return redirect()->back()->with('error', 'Attendance has already been submitted for this date.');
     }
@@ -40,6 +57,7 @@ public function submit_attendance_sheet(Request $request)
             'employee_id' => $employeeId,
             'attendance_date' => $request->attendance_date,
             'status' => $status,
+            'auth_email' => Auth::user()->email,
         ]);
     }
 
@@ -100,6 +118,8 @@ public function submit_leave_dp(Request $request){
          $randomNumber = random_int(5000000, 9999999);
      } while (Leave_application::where('leave_application_id', $randomNumber)->exists());
      $data->leave_application_id=$randomNumber;
+     $data->auth_email=Auth::user()->email;
+
      $data->save();
 
         return redirect()->back()->with('success', 'Leave application submitted successfully!');
@@ -112,13 +132,58 @@ public function submit_leave_dp(Request $request){
 public function view_leave_application_status_dp(){
 
 
-    $data=Leave_application::all();
+    $data1=Auth::user()->email;
+
+    $data=Leave_application::where('auth_email',$data1)->get();
 
     return view('dp_manager.view_applied_leave_application',compact('data'));
+}
+
+
+   public function view_employees_list_performence_feedback_dp(){
+
+
+
+    $usertype=Auth::user()->usertype;
+    if ($usertype=='production_department_manager')
+    {
+    $employee_data=Employee::where('department','production')->get();
+    return view('dp_manager.view_performence_feedback_form',compact('employee_data'));
+
+    }
+    if ($usertype=='finance_department_manager')
+    {
+    $employee_data=Employee::where('department','finance')->get();
+    return view('dp_manager.view_performence_feedback_form',compact('employee_data'));
+
+    }
+    if ($usertype=='marketing_department_manager')
+    {
+    $employee_data=Employee::where('department','marketing')->get();
+    return view('dp_manager.view_performence_feedback_form',compact('employee_data'));
+
+    }
+
+   }
+
+public function view_employees_performence_feeback_form($id){
+
+
+$data=Employee::find($id);
+
+
+return view('dp_manager.view_performence_feedback_form',compact('data'));
 
 
 
 
+
+}
+
+
+
+
+   }
 
 
 
@@ -127,5 +192,4 @@ public function view_leave_application_status_dp(){
 
 }
 
-}
 

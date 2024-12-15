@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('none_employees', function (Blueprint $table) {
+        Schema::create('Job_applications', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
@@ -23,11 +23,11 @@ return new class extends Migration
             $table->string( 'city');
             $table->string( 'position');
             $table->string('cv_path');
-            $table->string('cv_file');
             $table->bigInteger('cv_application_id')->unique();
             $table->date('application_date');
             $table->string('status')->default('pending');
             $table->bigInteger('job_circular_id');
+            $table->string('auth_email')->nullable();
             $table->timestamps();
         });
     }

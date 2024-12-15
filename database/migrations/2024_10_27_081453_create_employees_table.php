@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('department');
             $table->string('position');
             $table->date('joining_date');
+            $table->string('employee_image')->nullable();
             $table->timestamps();
         });
     }

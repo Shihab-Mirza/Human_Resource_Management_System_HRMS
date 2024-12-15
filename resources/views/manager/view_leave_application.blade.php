@@ -48,6 +48,7 @@
 
                 <table>
                     <tr>
+                        <th>SI</th>
                         <th>Leave application ID</th>
                         <th>Employee Name</th>
                         <th>Leave Type</th>
@@ -55,8 +56,9 @@
                         <th>Status</th>
                         <th>view action</th>
                     </tr>
-                    @foreach($data as $data)
+                    @foreach($data as $index => $data)
                     <tr>
+                        <td>{{ $index + 1 }}</td>
                         <td>{{ $data->leave_application_id }}</td>
                         <td>{{ $data->employee_name }}</td>
                         <td> {{ $data->leave_type }}</td>

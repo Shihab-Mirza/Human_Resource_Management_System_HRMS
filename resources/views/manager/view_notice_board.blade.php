@@ -46,6 +46,7 @@ td {
 
             <table>
                 <tr>
+                    <th>SI</th>
                     <th>Tittle</th>
                     <th>To</th>
                     <th>Notice</th>
@@ -53,8 +54,9 @@ td {
                     <th>Update Action</th>
                     <th>Delete Action</th>
                 </tr>
-                @foreach($view_notice_data as $data)
+                @foreach($view_notice_data as $index => $data)
                 <tr>
+                 <td>{{ $index + 1 }}</td>
                  <td>{{$data->title}}</td>
                  <td>{{$data->notice_to}}</td>
                  <td>{{$data->message }}</td>

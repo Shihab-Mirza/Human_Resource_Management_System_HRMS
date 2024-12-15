@@ -62,7 +62,7 @@
                         <td> {{ $data->leave_type }}</td>
                         <td>{{ $data->leave_start_date }} to {{ $data->leave_end_date }}</td>
                         <td > {{ $data->status }}  </td>
-                        <td > {{ $data->additional_notes }}  </td>
+                        <td > {{ $data->additional_notes }} </td>
                     </tr>
                     @endforeach
                 </table>

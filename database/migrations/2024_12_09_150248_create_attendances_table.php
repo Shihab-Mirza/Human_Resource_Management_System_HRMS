@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign( 'employee_id')->references('id')->on('employee')->onDelete("cascade")->onUpdate('cascade');
             $table->date('attendance_date');
             $table->string('status')->nullable();
+            $table->string('auth_email')->nullable();
+
             $table->timestamps();
         });
     }
