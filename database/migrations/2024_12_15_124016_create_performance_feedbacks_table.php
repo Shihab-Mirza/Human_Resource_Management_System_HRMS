@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('performence_feedbacks', function (Blueprint $table) {
+        Schema::create('performance_feedbacks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employee')->onDelete('cascade')->onUpdate('cascade');
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('performence_feedbacks');
+        Schema::dropIfExists('performance_feedbacks');
     }
 };

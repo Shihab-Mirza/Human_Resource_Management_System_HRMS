@@ -7,7 +7,7 @@ use App\Models\Attendance;
 use Illuminate\Http\Request;
 use App\Models\Notice;
 use App\Models\Leave_application;
-use App\Models\Performence_feedback;
+use App\Models\Performance_feedback;
 use Illuminate\Support\Facades\Auth;
 
 class Department_manager_Controller extends Controller
@@ -141,7 +141,7 @@ public function view_leave_application_status_dp(){
 }
 
 
-   public function view_employees_list_performence_feedback_dp(){
+   public function view_employees_list_performance_feedback_dp(){
 
 
 
@@ -149,38 +149,38 @@ public function view_leave_application_status_dp(){
     if ($usertype=='production_department_manager')
     {
     $employee_data=Employee::where('department','production')->get();
-    return view('dp_manager.view_performence_feedback_form',compact('employee_data'));
+    return view('dp_manager.view_performance_feedback_form',compact('employee_data'));
 
     }
     if ($usertype=='finance_department_manager')
     {
     $employee_data=Employee::where('department','finance')->get();
-    return view('dp_manager.view_performence_feedback_form',compact('employee_data'));
+    return view('dp_manager.view_performance_feedback_form',compact('employee_data'));
 
     }
     if ($usertype=='marketing_department_manager')
     {
     $employee_data=Employee::where('department','marketing')->get();
-    return view('dp_manager.view_performence_feedback_form',compact('employee_data'));
+    return view('dp_manager.view_performance_feedback_form',compact('employee_data'));
 
     }
 
    }
 
-public function view_employees_performence_feeback_form($id){
+public function view_employees_performance_feeback_form($id){
 
 
 $data=Employee::find($id);
 
 
-return view('dp_manager.give_performence_feedback',compact('data'));
+return view('dp_manager.give_performance_feedback',compact('data'));
 
 
 }
 
-public function save_performence_feedback_data(Request $request,$id){
+public function save_performance_feedback_data(Request $request,$id){
 
-$data1 = Performence_feedback::where('month',$request->month)->where('employee_id',$id)->where('year',$request->year)->exists();
+$data1 = Performance_feedback::where('month',$request->month)->where('employee_id',$id)->where('year',$request->year)->exists();
 
 if($data1)
 
@@ -208,7 +208,7 @@ $request->validate([
     ]);
 
 
-    $feedback = new Performence_feedback;
+    $feedback = new Performance_feedback;
     $feedback->employee_id = $id;
     $feedback->job_knowledge = $request->job_knowledge;
     $feedback->quality_of_work = $request->quality_of_work;
@@ -224,12 +224,6 @@ $request->validate([
     $feedback->save();
 
     return redirect()->back()->with('success', 'Performance feedback submitted successfully!');
-
-
-
-
-
-
 
 
 

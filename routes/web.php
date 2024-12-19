@@ -7,8 +7,6 @@ use App\Http\Controllers\None_employeeController;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\Department_manager_Controller;
 
-use Illuminate\Database\Capsule\Manager;
-use Illuminate\Support\Manager as SupportManager;
 
 
 
@@ -92,12 +90,22 @@ Route::get('/view_leave_status',[EmployeeController::class,'view_leave_applicati
 
 Route::get('/view_leave_status_dp',[Department_manager_Controller::class,'view_leave_application_status_dp']);
 
-Route::get( '/view_employees_for_performence_feedback',[Department_manager_Controller::class,'view_employees_list_performence_feedback_dp']);
+Route::get( '/view_employees_for_performance_feedback',[Department_manager_Controller::class,'view_employees_list_performance_feedback_dp']);
 
-Route::get( '/give_performence_feedback/{id}',[Department_manager_Controller::class,'view_employees_performence_feeback_form']);
+Route::get( '/give_performance_feedback/{id}',[Department_manager_Controller::class,'view_employees_performance_feeback_form']);
 
 
-Route::post( '/save_performence_feedback/{id}',[Department_manager_Controller::class,'save_performence_feedback_data']);
+Route::post( '/save_performance_feedback/{id}',[Department_manager_Controller::class,'save_performance_feedback_data']);
+
+
+Route::get('/view_attendance_report', [ManagerController::class, 'view_attendance_report_employee']);
+Route::get('/generate_attendance_pdf/{attendance_date}/{department}', [ManagerController::class, 'generate_attendance_pdf']);
+
+
+Route::get('/performance_feedback',[ManagerController::class,'view_performance_feedback_report']);
+Route::get('/generate_performance_feedback_pdf/{id}/{month}/{year}',[ManagerController::class,'view_performance_feedback_report_pdf']);
+
+
 
 });
 

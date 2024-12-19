@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Performence_feedback extends Model
+class Performance_feedback extends Model
 {
+    protected $table='performance_feedbacks';
    protected $fillable = [ 'employee_id',
     'job_knowledge',
     'quality_of_work',
@@ -23,6 +24,6 @@ public function employee(){
 
 
 
-    return $this->belongsto(Employee::class,'employee_id');
+    return $this->belongsto(Employee::class);
 }
 }

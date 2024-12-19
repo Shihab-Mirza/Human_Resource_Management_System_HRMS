@@ -29,7 +29,7 @@
                 <i class="icon-windows"></i>Attendance and<br>leave Management
             </a>
             <ul id="attendence_drop_down" class="collapse list-unstyled">
-                <li><a href="#">Attendance and time tracking</a></li>
+                <li><a href="{{ url('view_attendance_report') }}">Attendance and time tracking</a></li>
                 <li><a href="{{ url('view_leave_application_of_employees') }}">Leave applications</a></li>
             </ul>
         </li>
@@ -43,7 +43,7 @@
                 <li><a href="{{ url('view_job_appliation') }}">View new recruitment application</a></li>
             </ul>
         </li>
-        <li><a href="#"> <i class="icon-logout"></i>Performance Feedback</a></li>
+        <li><a href="performance_feedback"> <i class="icon-logout"></i>Performance Feedback</a></li>
         <li>
             <a href="#notice_drop_down" aria-expanded="false" data-toggle="collapse">
                 <i class="icon-windows"></i>Notice
@@ -53,11 +53,6 @@
                 <li><a href="{{ url('notice_board') }}">Add New Notice</a></li>
             </ul>
         </li>
-    </ul>
-    <ul class="list-unstyled">
-        <li><a href="#"> <i class="icon-writing-whiteboard"></i>1</a></li>
-        <li><a href="#"> <i class="icon-chart"></i>2</a></li>
-
     </ul>
 </nav>
 <!-- Sidebar Navigation end-->

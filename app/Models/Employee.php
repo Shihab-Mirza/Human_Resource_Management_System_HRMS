@@ -40,8 +40,8 @@ public function attendances()
 }
 
 
-public function Performence_feedbacks(){
+public function performance_feedbacks(){
 
-    return $this->hasMany(Performence_feedback::class);
+    return $this->hasMany(Performance_feedback::class,'employee_id');
 }
 }

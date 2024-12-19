@@ -9,6 +9,10 @@ use App\Models\Leave_application;
 Use App\Models\Payroll;
 USE App\Models\Notice;
 USE App\Models\Job_application;
+USE App\Models\Attendance;
+USE App\Models\Performance_feedback;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Illuminate\Support\Facades\DB;
 
 
 class ManagerController extends Controller
@@ -545,13 +549,76 @@ public function change_leave_applications_status(Request $request,$id){
 
 
 
+    public function view_attendance_report_employee()
+    {
+        $attendanceData = Attendance::join('employee', 'attendances.employee_id', '=', 'employee.id')
+            ->select('attendances.attendance_date', 'employee.department')
+            ->distinct()
+            ->get();
+
+        return view('manager.view_attendance_report', compact('attendanceData'));
+    }
+
+    public function generate_attendance_pdf($attendance_date, $department)
+    {
+        $attendanceReport =  Attendance::join('employee', 'attendances.employee_id', '=', 'employee.id')
+            ->select('employee.first_name', 'employee.last_name', 'employee.position', 'attendances.attendance_date', 'attendances.status')
+            ->where('attendances.attendance_date', $attendance_date)
+            ->where('employee.department', $department)
+            ->get();
+            if (!$attendanceReport) {
+                return redirect()->back()->with('error', 'No attendance record found!');
+            }
+
+            $fileName = 'attenance_report'.'_'.$attendance_date.'_'.$department.'.pdf';
+
+            $pdf = PDF::loadView('manager.attendance_report_pdf', compact('attendanceReport', 'attendance_date', 'department'));
+
+            return $pdf->stream($fileName);
+    }
 
 
+
+
+public function view_performance_feedback_report(){
+
+$performance_data=Performance_feedback::join('employee','performance_feedbacks.employee_id','=','employee.id')
+->select('employee.employee_unique_id','employee.first_name','employee.last_name','employee.department','performance_feedbacks.id','performance_feedbacks.month','performance_feedbacks.year')
+
+->get();
+
+
+return view('manager.view_performance_feedback',compact('performance_data'));
 }
 
+public function view_performance_feedback_report_pdf($id,$month,$year){{
+
+
+    $data=Performance_feedback::join('employee','performance_feedbacks.employee_id','=','employee.id')
+    ->select( 'employee.*','performance_feedbacks.*')
+    ->where('performance_feedbacks.id',$id)
+    ->where('performance_feedbacks.month',$month)
+    ->where('performance_feedbacks.year',$year)
+    ->first();
+
+
+
+    if (!$data) {
+        return redirect()->back()->with('error', 'No Performance feedback found!');
+    }
+
+
+    $fileName = 'performance_feedback'.'_'.$id.'_'.$month.'_'.$year.'.pdf';
+
+$pdf=PDF::loadView('manager.performance_report_pdf',compact('data','id','month','year'));
+
+
+return $pdf->stream($fileName);
 
 
 
 
 
+ }}
+}
 

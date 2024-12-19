@@ -141,7 +141,7 @@ textarea {
                     </div>
                     @endif
 
-                    <form action="{{ url('save_performence_feedback',$data->id) }}" method="post" class="job-form">
+                    <form action="{{ url('save_performance_feedback',$data->id) }}" method="post" class="job-form">
                         @csrf
 
                         <fieldset>
@@ -149,7 +149,7 @@ textarea {
                             <div class="form-row">
                                 <div class="form-field">
                                     <label for="employee_id">Employee ID:</label>
-                                    <input type="number" name="employee_id" value="{{ $data->employee_unique_id}}" >
+                                    <input type="number" name="employee_id" value="{{ $data->employee_unique_id}}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">

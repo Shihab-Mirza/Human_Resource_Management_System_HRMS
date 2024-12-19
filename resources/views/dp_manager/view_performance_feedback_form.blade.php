@@ -41,8 +41,8 @@
 @include('dp_manager.sidebar')
 <div class="page-content">
     <div class="page-header">
-        <div class="container-fluid">
-            <h2>{{ $employee_data->first()->department }} department</h2>
+        <div class="container-fluid"><br>
+            <h2> Performance feedback</h2>
             <table>
                 <tr>
                     <th>SI</th>
@@ -63,7 +63,7 @@
                     <td>{{ $employee_data->employee_unique_id }}</td>
                     <td>{{ $employee_data->first_name }} {{ $employee_data->last_name }}</td>
                     <td>{{ $employee_data->position }}</td>
-                    <td><a href="{{ url('give_performence_feedback',$employee_data->id) }}">give feedback</a></td>
+                    <td><a href="{{ url('give_performance_feedback',$employee_data->id) }}">give feedback</a></td>
                 </tr>
                 @endforeach
             </table>
