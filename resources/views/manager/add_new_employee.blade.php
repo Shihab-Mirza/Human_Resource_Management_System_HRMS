@@ -11,7 +11,7 @@
         /* General Styles */
         .employee-form {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             margin: 0;
             padding: 20px;
         }
@@ -29,7 +29,7 @@
         .employee-form-title {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         fieldset {
@@ -37,15 +37,18 @@
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 20px;
+            font-size: 13px;
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
         }
 
         legend {
             font-weight: bold;
+            font-size: 15px;
             margin-bottom: 10px;
         }
 
         .form-row {
+            font-size: 13px;
             display: flex;
             flex-wrap: wrap;
             gap: 10px; /* Space between fields */
@@ -53,11 +56,13 @@
         }
 
         .form-field {
+            font-size: 13px;
             flex: 1;
             min-width: 220px; /* Minimum width for responsiveness */
         }
 
         label {
+            font-size: 13px;
             display: block;
             margin-bottom: 5px;
             font-weight: bold;

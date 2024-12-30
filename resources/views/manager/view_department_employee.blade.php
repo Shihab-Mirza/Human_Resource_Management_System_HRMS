@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,33 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-
 @include('manager.css')
-
-    <style>
- table {
-            width: 99%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Use fixed layout */
-
-        }
-        th{   border: 1px solid #ddd; /* Add borders to cells */
-    padding: 8px; /* Add padding for better spacing */
-    word-wrap: break-word; /* Allow long words to break onto the next line */
-    white-space: normal; /* Ensure text can wrap */
-    overflow-wrap: break-word; /* Ensure long words wrap */
-
-    background-color: #f2f2f2;}
-
-        td {
-    border: 1px solid #ddd; /* Add borders to cells */
-    padding: 8px; /* Add padding for better spacing */
-    word-wrap: break-word; /* Allow long words to break onto the next line */
-    white-space: normal; /* Ensure text can wrap */
-    overflow-wrap: break-word; /* Ensure long words wrap */
-
-}
-    </style>
 </head>
 <body>
 @include('manager.navigation')
@@ -43,7 +16,7 @@
     <div class="page-header">
         <div class="container-fluid">
             <h2>{{ $department_name }} department</h2>
-            <table>
+            <table class="employee-table">
                 <tr>
                     <th>SI</th>
                     <th>Employee Photo</th>
@@ -53,21 +26,22 @@
                     <th>View full Profile</th>
                     <th>Update Profile</th>
                     <th>Delete Profile</th>
-                     </tr>
+                </tr>
                 @foreach($employee_data as $index => $employee_data)
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>
-                     @if($employee_data->employee_image)
-                    <img src="{{ Storage::url( $employee_data->employee_image) }}" alt="Employee Photo" width="100" height="100">
-                @endif
-            </td>
-                    <td>{{ $employee_data->employee_unique_id }}</td>
+                        @if($employee_data->employee_image)
+                            <img src="{{ Storage::url($employee_data->employee_image) }}" alt="Employee Photo" width="100" height="100">
+                        @endif
+                    </td>
+                    <td >{{ $employee_data->employee_unique_id }}</td>
                     <td>{{ $employee_data->first_name }} {{ $employee_data->last_name }}</td>
                     <td>{{ $employee_data->position }}</td>
-                    <td><a href="{{ url('view_full_profile',$employee_data->id) }}">View</a></td>
-                    <td><a href="{{ url('update_employee_profile',$employee_data->id) }}">Update</a></td>
-                    <td><a href="{{ url("delete_employee_profile",$employee_data->id) }}">Delete</a></td>
+                    <td class="center-align"><a href="{{ url('view_full_profile', $employee_data->id) }}" class="btn btn-info">View</a></td>
+                    <td class="center-align"><a href="{{ url('update_employee_profile', $employee_data->id) }}" class="btn btn-warning">Update</a></td>
+                    <td class="center-align"><a href="{{ url("delete_employee_profile", $employee_data->id) }}" class="btn btn-danger">Delete</a></td>
+
                 </tr>
                 @endforeach
             </table>
@@ -76,5 +50,4 @@
 </div>
 @include('manager.js')
 </body>
-
 </html>

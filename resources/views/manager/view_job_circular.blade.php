@@ -8,39 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     @include('manager.css')
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Use fixed layout */
-
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            overflow-wrap: break-word; /* Ensure long words wrap */
-        }
-        th {
-            background-color: #f2f2f2;
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            overflow-wrap: break-word; /* Ensure long words wrap */
-        }
-
-    </style>
-
 </head>
 <body>
 @include('manager.navigation')
 @include('manager.sidebar')
+
 <div class="page-content">
     <div class="page-header">
         <div class="container-fluid">
             <h2>Job Circular</h2>
-            <table>
+            <table class="job-circular-table">
                 <tr>
                     <th>SI</th>
                     <th>Job title</th>
@@ -57,14 +34,15 @@
                     <td>{{ $data->employment_type }}</td>
                     <td>{{ $data->salary_range }}</td>
                     <td>{{ $data->application_deadline }}</td>
-                    <td><a href="{{ url('update_job_circular',$data->id) }}">Update</a></td>
-                    <td><a href="{{ url('delete_job_circular',$data->id) }}">Delete</a></td>
+                    <td ><a href="{{ url('update_job_circular',$data->id) }}"  class="btn btn-warning">Update</a></td>
+                    <td><a href="{{ url('delete_job_circular',$data->id) }}"  class="btn btn-danger">Delete</a></td>
                 </tr>
                 @endforeach
             </table>
         </div>
     </div>
 </div>
+
 @include('manager.js')
 </body>
 </html>

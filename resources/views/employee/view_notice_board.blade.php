@@ -8,33 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     @include('employee.css')
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Use fixed layout */
-
-        }
-        th{   border: 1px solid #ddd; /* Add borders to cells */
-    padding: 8px; /* Add padding for better spacing */
-    word-wrap: break-word; /* Allow long words to break onto the next line */
-    white-space: normal; /* Ensure text can wrap */
-    background-color: #f2f2f2;}
-
-        td {
-    border: 1px solid #ddd; /* Add borders to cells */
-    padding: 8px; /* Add padding for better spacing */
-    word-wrap: break-word; /* Allow long words to break onto the next line */
-    white-space: normal; /* Ensure text can wrap */
-}
-
-td {
-    max-width: 200px; /* Set a max width for cells, adjust as needed */
-}
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 <body>
 @include('employee.navigation')
@@ -43,20 +16,21 @@ td {
     <div class="page-header">
         <div class="container-fluid">
             <h2>Notice Board</h2>
-             <table>
+            <table class="notice-table-employee">
                 <tr>
-                    <th>Tittle</th>
+                    <th>SI</th>
+                    <th>Title</th>
                     <th>To</th>
                     <th>Notice</th>
                     <th>Date Created</th>
                 </tr>
-                @foreach($data as $data)
+                @foreach($data as $index => $data)
                 <tr>
-                 <td>{{$data->title}}</td>
-                 <td>{{$data->notice_to}}</td>
-                 <td>{{$data->message }}</td>
-                 <td>{{$data->date_created }}</td>
-
+                    <td>{{$index+1}}</td>
+                    <td>{{$data->title}}</td>
+                    <td>{{$data->notice_to}}</td>
+                    <td>{{$data->message}}</td>
+                    <td>{{$data->date_created}}</td>
                 </tr>
                 @endforeach
             </table>

@@ -9,25 +9,24 @@
     @include('dp_manager.css')
     <style>
 
-.job-form {
+.performance-form {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     margin: 0;
     padding: 20px;
 }
 
-.job-form-container {
-    background-color: #fff;
+.performance-form-container {
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 100%; /* Full width */
-    margin: auto;}
+   ;}
 
-.job-form-title {
+.performance-form-title {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 fieldset {
@@ -35,12 +34,12 @@ fieldset {
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 20px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 legend {
     font-weight: bold;
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .form-row {
@@ -114,15 +113,15 @@ textarea {
     </style>
 </head>
 
-<body class="job-form-full">
+<body class="performance-form-full">
     <main class="scrollable-content">
         @include('dp_manager.navigation')
         @include('dp_manager.sidebar')
 
         <div class="page-content">
             <div class="container-fluid">
-                <div class="job-form-container">
-                    <h1 class="job-form-title">Performance Feedback form</h1>
+                <div class="performance-form-container">
+                    <h1 class="performance-form-title">Performance Feedback form</h1>
                     @if(session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
@@ -141,7 +140,7 @@ textarea {
                     </div>
                     @endif
 
-                    <form action="{{ url('save_performance_feedback',$data->id) }}" method="post" class="job-form">
+                    <form action="{{ url('save_performance_feedback',$data->id) }}" method="post" class="performance-form">
                         @csrf
 
                         <fieldset>
@@ -168,11 +167,11 @@ textarea {
 
 
                         <fieldset>
-                            <legend>Job Performance Feedback</legend>
+                            <legend>Performance Feedback</legend>
                             <div class="form-row">
                                 <div class="form-field">
-                                    <label for="job_knowledge">Job Knowledge:</label>
-                                    <select id="job_knowledge" name="job_knowledge">
+                                    <label for="performance_knowledge">Performance Knowledge:</label>
+                                    <select id="performance_knowledge" name="performance_knowledge">
                                         <option value="Good">Good</option>
                                         <option value="Neutral">Neutral</option>
                                         <option value="Bad">Bad</option>

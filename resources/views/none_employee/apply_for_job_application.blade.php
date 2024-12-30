@@ -11,25 +11,27 @@
         /* General Styles */
         .job-application-form {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             margin: 0;
             padding: 20px;
         }
 
         .job-application-form-container {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             max-width: 100%; /* Full width */
             margin: auto;
             overflow: hidden; /* Prevent overflow */
+            font-size: 15px;
         }
 
         .job-application-form-title {
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
+            font-size: 20px;
         }
 
         fieldset {
@@ -43,6 +45,7 @@
         legend {
             font-weight: bold;
             margin-bottom: 10px;
+            font-size: 15px;
         }
 
         .form-row {
@@ -75,6 +78,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 14px;
         }
 
         input[type="file"] {

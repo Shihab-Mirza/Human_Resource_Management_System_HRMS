@@ -8,30 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     @include('manager.css')
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Use fixed layout */
-
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            overflow-wrap: break-word; /* Ensure long words wrap */
-        }
-        th {
-            background-color: #f2f2f2;
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            overflow-wrap: break-word; /* Ensure long words wrap */
-        }
-
-    </style>
-
 </head>
 <body>
 @include('manager.navigation')
@@ -41,7 +17,7 @@
         <div class="container-fluid">
             <h2>Payroll Management</h2>
 
-            <table>
+            <table class="payroll-table">
                 <tr>
                     <th>SI</th>
                     <th>Employee ID</th>
@@ -61,11 +37,11 @@
                     <td>{{ $employee->first_name }} {{ $employee->last_name }}</td>
                     <td>{{ $employee->department }}</td>
                     <td>{{ $employee->position }}</td>
-                    <td name = "base_salary_month">{{ $employee->payroll->base_salary_monthly }}</td>
-                    <td>{{ $employee->payroll->base_salary_yearly }}</td>
-                    <td>{{ $employee->payroll->bonus }}</td>
-                    <td>{{ $employee->payroll->total_salary }}</td>
-                    <td><a href="{{ url('update_payroll', $employee->id) }}">Update</a></td>
+                    <td name="base_salary_month" class="payroll-base-salary-month">{{ $employee->payroll->base_salary_monthly }}</td>
+                    <td class="payroll-base-salary-yearly">{{ $employee->payroll->base_salary_yearly }}</td>
+                    <td class="payroll-bonus">{{ $employee->payroll->bonus }}</td>
+                    <td class="payroll-total-salary">{{ $employee->payroll->total_salary }}</td>
+                    <td><a href="{{ url('update_payroll', $employee->id) }}"  class="btn btn-info">Update</a></td>
                 </tr>
                 @endforeach
             </table>

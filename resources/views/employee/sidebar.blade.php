@@ -1,10 +1,7 @@
 <nav id="sidebar" class="nav-down">
     <!-- Sidebar Header-->
     <div class="sidebar-header d-flex align-items-center">
-        <div class="avatar"><img src="#" class="img-fluid rounded-circle"></div>
         <div class="title">
-            <h1 class="h5">SM</h1>
-            <p>Manager</p>
         </div>
     </div>
     <!-- Sidebar Navigation Menus-->

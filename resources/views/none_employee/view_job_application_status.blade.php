@@ -8,29 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     @include('none_employee.css')
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Use fixed layout */
-
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            overflow-wrap: break-word; /* Ensure long words wrap */
-        }
-        th {
-            background-color: #f2f2f2;
-            word-wrap: break-word; /* Allow long words to break onto the next line */
-            white-space: normal; /* Ensure text can wrap */
-            overflow-wrap: break-word; /* Ensure long words wrap */
-        }
-
-    </style>
 
 </head>
 <body>
@@ -41,13 +18,13 @@
         <div class="container-fluid">
             <h2>Job Applications</h2>
 
-            <table>
+            <table class="job-application-table-none-employee">
                 <tr>
                     <th>SI</th>
                     <th>Application ID</th>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Application date</th>
+                    <th>Application Date</th>
                     <th>Status</th>
                 </tr>
                 @foreach($data as $index => $data)
@@ -57,8 +34,7 @@
                     <td>{{ $data->first_name }}  {{ $data->last_name }}</td>
                     <td>{{ $data->position }}</td>
                     <td>{{ $data->application_date }}</td>
-                    <td>{{ $data->status }}</td>
-
+                    <td >{{ $data->status }}</td>
                 </tr>
                 @endforeach
             </table>

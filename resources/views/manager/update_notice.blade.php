@@ -10,47 +10,79 @@
     @include('manager.css')
 
     <style>
+        /* General Styles */
         .noticeform {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             margin: 0;
             padding: 20px;
         }
 
-        .notice_container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
+        .notice-form-container {
+            background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            height: 100vh;
+            margin: auto;
         }
 
-        h1 {
+        .notice-form-title {
             text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
         }
 
-        .notice-form-group {
+        /* Fieldset Styles */
+        .notice-info-fieldset {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .notice-info-legend {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Form Group Styles */
+        .notice-form-container .notice-form-group {
             margin-bottom: 15px;
         }
 
+        /* Adjust the layout of title/subject fields */
+        .notice-form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ensures space between the label and input */
+        }
+
+        .notice-form-group label {
+            width: 30%; /* Adjust label width as needed */
+        }
+
+        .notice-form-group input,
+        .notice-form-group textarea {
+            width: 65%; /* Adjust input width to make it fit alongside the label */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        /* Label Styles */
         label {
             display: block;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
+        /* Button Styles */
         .notice-submit-button-field {
             display: flex;
             justify-content: center; /* Center the button */
-            margin-top: 20px; /* Add some space above the button */
         }
 
         .notice-submit-button {
@@ -67,64 +99,65 @@
             background-color: #218838;
         }
 
-        .notices {
-            margin-top: 20px;
+        /* Alert Styles */
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
         }
 
-        .notice {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            background: #f9f9f9;
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
 
-    .alert {
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-    }
-
-    .alert-success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-    }
-
-
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .notice-form-group {
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    @include ('manager.navigation')
+    @include('manager.navigation')
     @include('manager.sidebar')
+
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <div class="notice_container">
-                    <h1>Add New Notice</h1>
+                <div class="notice-form-container">
+                    <h1 class="notice-form-title">Update Notice</h1>
                     @if(session('success'))
-                  <div class="alert alert-success">
-                 {{ session('success') }}
-                   </div>
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
                     @endif
                     <form class="noticeform" action="{{ url('update_submitted_notice', $existing_notice_data->id) }}" method="post">
                         @csrf
-                        <div class="notice-form-group">
-                            <label for="title">Title/Subject:</label>
-                            <input type="text" name="title" required value="{{ $existing_notice_data->title }}">
-                        </div>
-                        <div class="notice-form-group">
-                            <label for="notice_to">To</label>
-                            <input type="text" name="notice_to" required value="{{ $existing_notice_data->notice_to }}">
-                        </div>
-                        <div class="notice-form-group">
-                            <label for="message">Message:</label>
-                            <textarea name="message" required >{{ $existing_notice_data->title }}</textarea >
-                        </div>
-                        <div class="notice-form-group">
-                            <label for="date">Date Created:</label>
-                            <input type="date" name="date" required value="{{ \Carbon\Carbon::parse($existing_notice_data->date)->format('Y-m-d') }}" >
-                        </div>
+                        <!-- Notice Information -->
+                        <fieldset class="notice-info-fieldset">
+                            <legend class="notice-info-legend">Notice Information</legend>
+                            <div class="notice-form-group">
+                                <label for="title">Title/Subject:</label>
+                                <input type="text" name="title" required value="{{ $existing_notice_data->title }}">
+                            </div>
+                            <div class="notice-form-group">
+                                <label for="notice_to">To:</label>
+                                <input type="text" name="notice_to" required value="{{ $existing_notice_data->notice_to }}">
+                            </div>
+                            <div class="notice-form-group">
+                                <label for="message">Message:</label>
+                                <textarea name="message" required>{{ $existing_notice_data->message }}</textarea>
+                            </div>
+                            <div class="notice-form-group">
+                                <label for="date">Date Created:</label>
+                                <input type="date" name="date" required value="{{ \Carbon\Carbon::parse($existing_notice_data->date)->format('Y-m-d') }}">
+                            </div>
+                        </fieldset>
+
+                        <!-- Submit Button -->
                         <div class="notice-submit-button-field">
                             <button class="notice-submit-button" type="submit">Submit</button>
                         </div>
@@ -133,6 +166,7 @@
             </div>
         </div>
     </div>
+
     @include('manager.js')
 </body>
 </html>

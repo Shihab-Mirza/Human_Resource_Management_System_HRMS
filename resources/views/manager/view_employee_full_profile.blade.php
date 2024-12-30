@@ -13,23 +13,24 @@
 /* General Styles */
 .employee_form{
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     margin: 0;
     padding: 20px;
 }
 
 .employee-form-container {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Increased width */
+    max-width: 100%; /* Increased width */
     margin: auto;
 }
 
 .employee-form-title {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 /* Fieldset Styles */
@@ -40,6 +41,7 @@
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 20px;
+    font-size: 17px;
 }
 
 .personal-info-legend,
@@ -47,6 +49,7 @@
 .employment-info-legend {
     font-weight: bold;
     margin-bottom: 10px;
+    font-size: 17px;
 }
 
 /* Form Group Styles */
@@ -59,6 +62,7 @@
 .employee-form-container .resume-field,
 .employee-form-container .additional-notes-field {
     margin-bottom: 15px;
+
 }
 
 .first-name-field,
@@ -76,6 +80,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+
 }
 
 /* Input Styles */
@@ -91,6 +96,7 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box; /* Ensure padding doesn't affect width */
+    font-size: 14px;
 }
 
 input[type="file"] {

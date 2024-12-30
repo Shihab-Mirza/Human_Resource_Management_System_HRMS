@@ -1,3 +1,1199 @@
+html {
+    overflow: hidden ;  /* Disable scrolling */
+    margin: 0;
+    padding: 0;
+
+  }
+body {
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto ;
+margin-top: 50px;
+background-color: white !important;
+
+  }
+
+
+
+            /* Styling for the Notice Table employee*/
+               .notice-table-employee {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed; /* Use fixed layout */
+                margin-top: 20px;
+                font-family: Arial, sans-serif;
+                border-radius: 8px;
+                background-color: #ffffff;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+                overflow: hidden;
+            }
+
+            /* Table Header Styling */
+            .notice-table-employee th {
+                background-color: #007bff; /* Blue background for header */
+                color: white;
+                text-align: left;
+                padding: 12px 15px;
+                font-size: 14px;
+                font-weight: 700;
+                border: 1px solid #ddd;
+            }
+
+            /* Table Cell Styling */
+            .notice-table-employee td {
+                padding: 12px 15px;
+                text-align: left;
+                font-size: 14px;
+                color: #666666; /* Slightly lighter gray for text */
+                border: 1px solid #ddd;
+                word-wrap: break-word;
+                white-space: normal;
+                overflow-wrap: break-word;
+            }
+
+            /* Zebra Striping for Rows */
+            .notice-table-employee tr:nth-child(even) {
+                background-color: #f1f9ff; /* Light blue background for even rows */
+            }
+
+            /* Hover Effect for Table Rows */
+            .notice-table-employee tr:hover {
+                background-color: #d1e7ff; /* Lighter blue hover effect */
+            }
+
+            /* Responsive Design for Mobile */
+            @media (max-width: 768px) {
+                .notice-table-employee {
+                    width: 100%;
+                    font-size: 14px; /* Slightly smaller font size on mobile */
+                }
+                .notice-table-employee th, .notice-table-employee td {
+                    padding: 8px; /* Reduce padding for smaller screens */
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+       /* Styling for the Leave Application Table employee*/
+        .leave-application-table-employee {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden;
+        }
+
+        /* Table Header Styling */
+        .leave-application-table-employee th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .leave-application-table-employee td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .leave-application-table-employee tr:nth-child(even) {
+            background-color: #f1f9ff; /* Light blue background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .leave-application-table-employee tr:hover {
+            background-color: #d1e7ff; /* Lighter blue hover effect */
+        }
+
+        /* Status Color Coding */
+        .status-approved {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-rejected {
+            color: red;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: orange;
+            font-weight: bold;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .leave-application-table-employee {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .leave-application-table-employee th, .leave-application-table-employee td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+
+
+
+
+
+
+  /* Styling for the Job Circular Table none employee*/
+  .job-circular-table-ne {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Use fixed layout */
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    overflow: hidden;
+}
+
+/* Table Header Styling */
+.job-circular-table-ne th {
+    background-color: #007bff; /* Blue background for header */
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #ddd;
+}
+
+/* Table Cell Styling */
+.job-circular-table-ne td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #666666; /* Slightly lighter gray for text */
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/* Zebra Striping for Rows */
+.job-circular-table-ne tr:nth-child(even) {
+    background-color: #f1f9ff; /* Light blue background for even rows */
+}
+
+/* Hover Effect for Table Rows */
+.job-circular-table-ne tr:hover {
+    background-color: #d1e7ff; /* Lighter blue hover effect */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .job-circular-table-ne {
+        width: 100%;
+        font-size: 14px; /* Slightly smaller font size on mobile */
+    }
+    .job-circular-table-ne th, .job-circular-table-ne td {
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Styling for the job application table none employee */
+        .job-application-table-none-employee {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden;
+        }
+
+        /* Table Header Styling */
+        .job-application-table-none-employee th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .job-application-table-none-employee td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .job-application-table-none-employee tr:nth-child(even) {
+            background-color: #f1f9ff; /* Light blue background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .job-application-table-none-employee tr:hover {
+            background-color: #d1e7ff; /* Lighter blue hover effect */
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .job-application-table-none-employee {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .job-application-table-none-employee th, .job-application-table-none-employee td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+
+
+
+
+                 /* Styling for the notice board table dp */
+        .notice-table-dp {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden;
+        }
+
+        /* Table Header Styling */
+        .notice-table-dp th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .notice-table-dp td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .notice-table-dp tr:nth-child(even) {
+            background-color: #fafafa; /* Light background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .notice-table-dp tr:hover {
+            background-color: #ddd; /* Light gray hover effect */
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .notice-table-dp {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .notice-table-dp th, .notice-table-dp td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+
+
+            /* Styling for the leave application table dp*/
+            .leave-application-table-dp {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 30px;
+                font-family: Arial, sans-serif;
+                border-radius: 8px;
+                background-color: #ffffff;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+                overflow: hidden;
+            }
+
+            /* Table Header Styling */
+            .leave-application-table-dp th {
+                background-color: #007bff; /* Blue background for header */
+                color: white;
+                text-align: left;
+                padding: 12px 15px;
+                font-size: 14px;
+                font-weight: 700;
+                border: 1px solid #ddd;
+            }
+
+            /* Table Cell Styling */
+            .leave-application-table-dp td {
+                padding: 12px 15px;
+                text-align: left;
+                font-size: 14px;
+                color: #666666; /* Slightly lighter gray for text */
+                border: 1px solid #ddd;
+                word-wrap: break-word;
+                white-space: normal;
+                overflow-wrap: break-word;
+            }
+
+            /* Zebra Striping for Rows */
+            .leave-application-table-dp tr:nth-child(even) {
+                background-color: #fafafa; /* Light background for even rows */
+            }
+
+            /* Hover Effect for Table Rows */
+            .leave-application-table-dp tr:hover {
+                background-color: #ddd; /* Light gray hover effect */
+            }
+
+            /* Status Color Classes */
+            .status-approved {
+                color: green;
+            }
+
+            .status-rejected {
+                color: red;
+            }
+
+            .status-pending {
+                color: orange;
+            }
+
+            /* Responsive Design for Mobile */
+            @media (max-width: 768px) {
+                .leave-application-table-dp {
+                    width: 100%;
+                    font-size: 14px; /* Slightly smaller font size on mobile */
+                }
+                .leave-application-table-dp th, .leave-application-table-dp td {
+                    padding: 8px; /* Reduce padding for smaller screens */
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Styling for the performance feedback table */
+      .performance-feedback-table {
+        width: 99%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+        border-radius: 8px; /* Rounded corners */
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+        overflow: hidden;
+    }
+
+    /* Table Header Styling */
+    .performance-feedback-table th {
+        background-color: #007bff; /* Blue background for header */
+        color: white;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 14px;
+        font-weight: 700;
+        border: 1px solid #ddd;
+    }
+
+    /* Table Cell Styling */
+    .performance-feedback-table td {
+        padding: 12px 15px;
+        text-align: left;
+        font-size: 14px;
+        color: #666666; /* Slightly lighter gray for text */
+        border: 1px solid #ddd;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* Zebra Striping for Rows */
+    .performance-feedback-table tr:nth-child(even) {
+        background-color: #fafafa; /* Light background for even rows */
+    }
+
+    /* Hover Effect for Table Rows */
+    .performance-feedback-table tr:hover {
+        background-color: #ddd; /* Light gray hover effect */
+    }
+
+    /* Action Link Styling */
+    .performance-feedback-table td a {
+        color: #007bff; /* Blue link color */
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    .performance-feedback-table td a:hover {
+        color: #0056b3; /* Darker blue on hover */
+        text-decoration: underline; /* Underline effect on hover */
+    }
+
+    /* Image Styling */
+    .performance-feedback-table img {
+        border-radius: 50%; /* Round images */
+        border: 2px solid #ddd; /* Light border around images */
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+        .performance-feedback-table {
+            width: 100%;
+            font-size: 14px; /* Slightly smaller font size on mobile */
+        }
+        .performance-feedback-table th, .performance-feedback-table td {
+            padding: 8px; /* Reduce padding for smaller screens */
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /* Styling for the leave application table */
+      .leave-application-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+        font-family: Arial, sans-serif;
+        border-radius: 8px; /* Rounded corners */
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+        overflow: hidden;
+    }
+
+    /* Table Header Styling */
+    .leave-application-table th {
+        background-color: #007bff; /* Blue background for header */
+        color: white;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 14px;
+        font-weight: 700;
+        border: 1px solid #ddd;
+    }
+
+    /* Table Cell Styling */
+    .leave-application-table td {
+        padding: 12px 15px;
+        text-align: left;
+        font-size: 14px;
+        color: #666666; /* Slightly lighter gray for text */
+        border: 1px solid #ddd;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* Zebra Striping for Rows */
+    .leave-application-table tr:nth-child(even) {
+        background-color: #fafafa; /* Light background for even rows */
+    }
+
+    /* Hover Effect for Table Rows */
+    .leave-application-table tr:hover {
+        background-color: #ddd; /* Light gray hover effect */
+    }
+
+    /* Status Indicators */
+    .status-approved {
+        color: green;
+        font-weight: bold;
+    }
+
+    .status-rejected {
+        color: red;
+        font-weight: bold;
+    }
+
+    .status-pending {
+        color: orange;
+        font-weight: bold;
+    }
+
+    /* Action Link Styling */
+    .leave-application-table td a {
+        color: #007bff; /* Blue link color */
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    .leave-application-table td a:hover {
+        color: #0056b3; /* Darker blue on hover */
+        text-decoration: underline; /* Underline effect on hover */
+    }
+
+    /* Responsive Design for Mobile */
+    @media (max-width: 768px) {
+        .leave-application-table {
+            width: 100%;
+            font-size: 14px; /* Slightly smaller font size on mobile */
+        }
+        .leave-application-table th, .leave-application-table td {
+            padding: 8px; /* Reduce padding for smaller screens */
+        }
+    }
+
+
+
+
+
+
+
+
+        /* Table Styling for performance feedback report table */
+        .performance-feedback-report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden; /* Ensure rounded corners are maintained */
+            background-color: #ffffff; /* White background */
+        }
+
+        /* Table Header Styling */
+        .performance-feedback-report-table th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .performance-feedback-report-table td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .performance-feedback-report-table tr:nth-child(even) {
+            background-color: #fafafa; /* Light background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .performance-feedback-report-table tr:hover {
+            background-color: #ddd; /* Light gray hover effect */
+        }
+
+        /* Action Link Styling */
+        .performance-feedback-report-table td a {
+            color: #007bff; /* Light blue link color */
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .performance-feedback-report-table td a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .performance-feedback-report-table {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .performance-feedback-report-table th, .performance-feedback-report-table td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+
+
+
+
+
+
+
+      /* Table Styling for job application table */
+        .job-application-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden; /* Ensure rounded corners are maintained */
+            background-color: #ffffff; /* White background */
+        }
+
+        /* Table Header Styling */
+        .job-application-table th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .job-application-table td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .job-application-table tr:nth-child(even) {
+            background-color: #fafafa; /* Light background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .job-application-table tr:hover {
+            background-color: #ddd; /* Light gray hover effect */
+        }
+
+        /* Action Link Styling */
+        .job-application-table td a {
+            color: #007bff; /* Blue link color */
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .job-application-table td a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .job-application-table {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .job-application-table th, .job-application-table td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Table Styling for notice board table */
+        .notice-board-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden; /* Ensure rounded corners are maintained */
+            background-color: #ffffff; /* White background */
+        }
+
+        /* Table Header Styling */
+        .notice-board-table th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .notice-board-table td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .notice-board-table tr:nth-child(even) {
+            background-color: #fafafa; /* Light background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .notice-board-table tr:hover {
+            background-color: #ddd; /* Light gray hover effect */
+        }
+
+        /* Action Link Styling */
+        .notice-board-table td a {
+            color: #007bff; /* Blue link color */
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .notice-board-table td a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .notice-board-table {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .notice-board-table th, .notice-board-table td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+        /* Styling for .job circular table */
+        .job-circular-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            overflow: hidden; /* Ensure rounded corners are maintained */
+            background-color: #ffffff; /* White background */
+        }
+
+        /* Table Header Styling */
+        .job-circular-table th {
+            background-color: #007bff; /* Blue background for header */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #ddd;
+        }
+
+        /* Table Cell Styling */
+        .job-circular-table td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666; /* Slightly lighter gray for text */
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        /* Zebra Striping for Rows */
+        .job-circular-table tr:nth-child(even) {
+            background-color: #fafafa; /* Light background for even rows */
+        }
+
+        /* Hover Effect for Table Rows */
+        .job-circular-table tr:hover {
+            background-color: #ddd; /* Light gray hover effect */
+        }
+
+        /* Action Link Styling */
+        .job-circular-table td a {
+            color: #007bff; /* Light blue link color */
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .job-circular-table td a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .job-circular-table {
+                width: 100%;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+            .job-circular-table th, .job-circular-table td {
+                padding: 8px; /* Reduce padding for smaller screens */
+            }
+        }
+
+
+   /* attendance report Table Styling */
+   .attendance-report-view {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    overflow: hidden; /* Ensure rounded corners are maintained */
+    background-color: #ffffff; /* White background */
+}
+
+/* Table Header Styling */
+.attendance-report-view th {
+    background-color: #007bff; /* Blue background for header */
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #ddd;
+}
+
+/* Table Cell Styling */
+.attendance-report-view td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #666666; /* Slightly lighter gray for text */
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+/* Zebra Striping for Rows */
+.attendance-report-view tr:nth-child(even) {
+    background-color: #fafafa; /* Light background for even rows */
+}
+
+/* Hover Effect for Table Rows */
+.attendance-report-view tr:hover {
+    background-color: #ddd; /* Light gray hover effect */
+}
+
+/* Action Link Styling */
+.attendance-report-view td a {
+    color: #007bff; /* Light blue link color */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.attendance-report-view td a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .attendance-report-view {
+        width: 100%;
+        font-size: 14px; /* Slightly smaller font size on mobile */
+    }
+    .attendance-report-view th, .attendance-report-view td {
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+}
+
+
+
+
+
+
+
+  /* employee view  Table Styling */
+   .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fixed layout to control column width */
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    overflow: hidden; /* Ensure rounded corners are maintained */
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+}
+
+/* Table Header Styling */
+.employee-table th {
+    background-color: #007bff; /* Blue background for header */
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+}
+
+/* Targeting the SI column header specifically */
+.employee-table th:first-child {
+    border-left: 1px solid #ddd; /* Border on left side for SI column */
+    border-right: 1px solid #e0e0e0; /* A slightly lighter border for right side of SI column */
+    width: 50px; /* Set width for SI column */
+}
+
+/* Table Cell Styling */
+.employee-table td {
+    padding: 8px; /* Smaller padding for table cells */
+    text-align: left;
+    font-size: 14px;
+    color: #010101; /* Slightly lighter gray for text */
+    border: 1px solid #ddd; /* Thin border between cells */
+    word-wrap: break-word; /* Allow long words to break onto the next line */
+    white-space: normal; /* Ensure text can wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+}
+
+/* Targeting the SI column data cells specifically */
+.employee-table td:first-child {
+    border-left: 1px solid #ddd; /* Border on left side for SI column */
+    border-right: 1px solid #e0e0e0; /* A slightly lighter border for right side of SI column */
+    width: 50px; /* Set width for SI column */
+    text-align: center;
+
+}
+
+/* Zebra Striping for Rows */
+.employee-table tr:nth-child(even) {
+    background-color: #fafafa; /* Light background for even rows */
+}
+
+/* Hover Effect for Table Rows */
+.employee-table tr:hover {
+    background-color: #f1f1f1; /* Light gray hover effect */
+}
+
+/* Action Link Styling */
+.employee-table td a {
+    color: #010101; /* Light blue link color */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.employee-table td a:hover {
+    color: #000000; /* Darker blue on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .employee-table {
+        width: 100%;
+        font-size: 14px; /* Slightly smaller font size on mobile */
+    }
+    .employee-table th, .employee-table td {
+        padding: 6px; /* Reduce padding for smaller screens */
+    }
+}
+
+
+
+
+.center-align {
+    text-align: center !important;
+    color: white !important;
+
+}
+
+a {
+    text-decoration: none!important ;
+
+}
+
+
+
+
+/* Payroll management */
+/* Add Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+
+/* General Table Styling */
+.payroll-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fixed layout to control column width */
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    overflow: hidden; /* Ensure rounded corners are maintained */
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+}
+
+/* Table Header Styling */
+.payroll-table th {
+    background-color: #007bff; /* Blue background for header */
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+}
+
+/* Targeting the SI column header specifically */
+.payroll-table th:first-child {
+    border-left: 1px solid #ddd; /* Border on left side for SI column */
+    border-right: 1px solid #e0e0e0; /* A slightly lighter border for right side of SI column */
+    width: 50px; /* Set width for SI column */
+}
+
+/* Table Cell Styling */
+.payroll-table td {
+    padding: 8px; /* Smaller padding for table cells */
+    text-align: left;
+    font-size: 14px;
+    color: #666666; /* Slightly lighter gray for text */
+    border: 1px solid #ddd; /* Thin border between cells */
+    word-wrap: break-word; /* Allow long words to break onto the next line */
+    white-space: normal; /* Ensure text can wrap */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+}
+
+/* Targeting the SI column data cells specifically */
+.payroll-table td:first-child {
+    border-left: 1px solid #ddd; /* Border on left side for SI column */
+    border-right: 1px solid #e0e0e0; /* A slightly lighter border for right side of SI column */
+    width: 50px; /* Set width for SI column */
+}
+
+/* Zebra Striping for Rows */
+.payroll-table tr:nth-child(even) {
+    background-color: #fafafa; /* Light background for even rows */
+}
+
+/* Hover Effect for Table Rows */
+.payroll-table tr:hover {
+    background-color: #f1f1f1; /* Light gray hover effect */
+}
+
+/* Action Link Styling */
+.payroll-table td a {
+    color: #007bff; /* Light blue link color */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.payroll-table td a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .payroll-table {
+        width: 100%;
+        font-size: 14px; /* Slightly smaller font size on mobile */
+    }
+    .payroll-table th, .payroll-table td {
+        padding: 6px; /* Reduce padding for smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 /*
 ==============================================================
 ==============================================================
@@ -15,19 +1211,7 @@ Dark Admin Bootstrap Template by Bootstrapious.com
 
 /* Target the vertical scrollbar */
 
-html {
-    overflow: hidden; /* Disable scrolling */
-    margin: 0;
-    padding: 0;
-  }
-body {
-  overflow-x: hidden;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-margin-top: 50px;
-  }
+
 
 
 
@@ -115,9 +1299,7 @@ a {
   border-radius: 0;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
+
 
 .tile-link {
   position: absolute;
@@ -413,9 +1595,9 @@ nav.navbar {
   background: #2d3035;
   color: #8a8d93;
 
- z-index: 1000;
+  z-index: 10;
   position: fixed;
-  top: 0;  /* Ensure it is at the top of the screen */
+  top: 0;
   left: 0;
   width: 100%;
 
@@ -435,9 +1617,7 @@ nav.navbar .sidebar-toggle {
 
 }
 
-nav.navbar a {
-  color: inherit;
-}
+
 
 nav.navbar .brand-text {
   display: none;
@@ -448,285 +1628,15 @@ nav.navbar .brand-text.visible {
   display: block;
 }
 
-nav.navbar a.nav-link {
-  padding: .5rem .3rem;
-  position: relative;
+
+.ml-auto {
+    margin-left: auto; /* Pushes the buttons to the right */
 }
 
-nav.navbar a.nav-link .badge {
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  color: #fff;
-  text-align: center;
-  border-radius: 50%;
-  padding: 0;
-  font-size: 0.7rem;
-  position: absolute;
-  top: 0;
-  right: -10px;
+.list-inline-item.logout {
+    margin-left: 15px; /* Adds space between buttons */
 }
 
-nav.navbar .messages-toggle,
-nav.navbar .tasks-toggle {
-  margin-right: 15px;
-}
-
-nav.navbar .menu-large {
-  position: static !important;
-}
-
-nav.navbar .search-panel {
-  display: none;
-}
-
-nav.navbar .search-inner {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(45, 48, 53, 0.95);
-  z-index: 9;
-}
-
-nav.navbar .search-inner .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  font-size: 1.1em;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-nav.navbar .search-inner form {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-}
-
-nav.navbar .search-inner .form-group {
-  position: relative;
-}
-
-nav.navbar .search-inner .submit {
-  background: none;
-  font-size: 2.3rem;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: #8a8d93;
-  border: none;
-  font-weight: 700 !important;
-}
-
-nav.navbar .search-inner input {
-  background: none;
-  width: 100%;
-  font-size: 2rem;
-  border: none;
-  border-bottom: 1px solid #444951;
-  color: #8a8d93;
-}
-
-nav.navbar .search-inner input::-moz-placeholder {
-  font-family: "Muli", sans-serif;
-  font-weight: 300 !important;
-  color: #585a5f;
-}
-
-nav.navbar .search-inner input::-webkit-input-placeholder {
-  font-family: "Muli", sans-serif;
-  font-weight: 300 !important;
-  color: #585a5f;
-}
-
-nav.navbar .search-inner input:-ms-input-placeholder {
-  font-family: "Muli", sans-serif;
-  font-weight: 300 !important;
-  color: #585a5f;
-}
-
-nav.navbar .dropdown-menu {
-  min-width: 300px;
-  margin-top: 21px;
-  left: auto;
-  right: 0;
-}
-
-nav.navbar .messages a {
-  padding: 15px !important;
-}
-
-nav.navbar .dropdown-item {
-  padding: 1rem !important;
-  border-bottom: 1px solid #393c43;
-}
-
-nav.navbar .dropdown-item:hover {
-  background: #282b2f;
-}
-
-nav.navbar .dropdown-item:last-of-type {
-  border-bottom: none;
-}
-
-nav.navbar .dropdown-item.message {
-  color: #8a8d93;
-  text-decoration: none;
-}
-
-nav.navbar .dropdown-item.message li:last-of-type a {
-  border-bottom: none;
-}
-
-nav.navbar .dropdown-item.message .profile {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 15px;
-  position: relative;
-}
-
-nav.navbar .dropdown-item.message .profile img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-nav.navbar .dropdown-item.message .profile .status {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-}
-
-nav.navbar .dropdown-item.message .profile .status.online {
-  background: #28a745;
-}
-
-nav.navbar .dropdown-item.message .profile .status.away {
-  background: #ffc107;
-}
-
-nav.navbar .dropdown-item.message .profile .status.busy {
-  background: #dc3545;
-}
-
-nav.navbar .dropdown-item.message .profile .status.offline {
-  background: #999;
-}
-
-nav.navbar .dropdown-item.message .content strong {
-  font-size: 1rem;
-}
-
-nav.navbar .dropdown-item.message .content span {
-  font-weight: 300;
-  font-size: 0.85rem;
-}
-
-nav.navbar .dropdown-item.message .content .date {
-  color: #70737a;
-}
-
-nav.navbar .tasks-list strong {
-  font-size: 1rem;
-}
-
-nav.navbar .tasks-list span {
-  font-size: 0.95rem;
-}
-
-nav.navbar .tasks-list .progress {
-  height: 2px;
-  margin-top: 10px;
-  background: #444951;
-}
-
-nav.navbar a.language span {
-  margin-left: .2rem;
-  vertical-align: middle;
-}
-
-/* Navbar dropdown effect */
-nav.navbar .dropdown .dropdown-menu {
-  -webkit-transform: translateY(50px);
-  transform: translateY(50px);
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-nav.navbar .dropdown .dropdown-menu.active {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-
-/* Navbar Media Query ----------------------------------- */
-@media (max-width: 1199px) {
-  nav.navbar .right-menu {
-    margin-bottom: -3px;
-  }
-  nav.navbar .navbar-brand {
-    margin-right: 5px;
-  }
-  nav.navbar .search-inner form input {
-    font-size: 1.25rem !important;
-  }
-  nav.navbar .search-inner form button.submit {
-    position: absolute;
-    font-size: 2rem;
-    top: 50px;
-    display: block;
-    width: 100%;
-  }
-  nav.navbar .sidebar-toggle {
-    width: 30px;
-    height: 30px;
-    line-height: 25px;
-    font-size: 1rem;
-  }
-  nav.navbar .messages-toggle,
-  nav.navbar .tasks-toggle {
-    margin-right: 0;
-  }
-  nav.navbar .brand-text {
-    display: none !important;
-  }
-  nav.navbar .brand-text.visible {
-    display: none !important;
-  }
-  nav.navbar .brand-text.brand-sm {
-    display: block !important;
-  }
-  nav.navbar .sidebar-toggle {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-  }
-}
-
-@media (max-width: 991px) {
-  nav.navbar .dropdown-menu {
-    right: -140px;
-  }
-  nav.navbar .megamenu {
-    right: 0 !important;
-  }
-  nav.navbar a.nav-link {
-    font-size: 0.85rem;
-  }
-  nav.navbar a.nav-link .badge {
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    color: #fff;
-    text-align: center;
-    font-size: 0.6rem;
-  }
-}
 
 /*
 * ==========================================================
@@ -738,17 +1648,14 @@ nav#sidebar {
   background: #2d3035;
   color: #6a6c70;
   border-right: 1px solid #34373d;
-  top: auto;
   left: 0;
-
-  flex-direction: column;
-
-  height: 100vh;
-  overflow-y: hidden; /* Enable vertical scrolling in the sidebar */
-
-  overflow-y: auto; /* Enable vertical scrolling in the sidebar */
+   flex-direction: column;
+   z-index: 9999;
+height: 100vh;
+  overflow-y: scroll !important/* Enable vertical scrolling in the sidebar */
   /* shrinked navbar */
 }
+
 nav#sidebar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Edge */
   }
@@ -768,6 +1675,7 @@ nav#sidebar a[data-toggle="collapse"]::after {
   position: absolute;
   top: 50%;
   right: 20px;
+  z-index: 999;
 }
 
 nav#sidebar a[aria-expanded="true"] {
@@ -823,10 +1731,15 @@ nav#sidebar .avatar {
 
 nav#sidebar ul {
   max-height: none;
+  text-align: left !important;
+  font-size: 14.5px !important;
 }
 
 nav#sidebar li {
   position: relative;
+  text-align: left !important;
+  font-size: 14.5px !important
+
   /* menu item */
   /* submenu item */
   /* menu item active */
@@ -878,11 +1791,11 @@ nav#sidebar li::before {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999;
 }
 
 nav#sidebar li.active::before {
-  background: #DB6574;
+  background: #98898a;
 }
 
 nav#sidebar li.active > a {
@@ -1015,6 +1928,16 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
   nav#sidebar a[aria-expanded="true"]::after {
     content: '\f106';
   }
+
+}
+
+#sidebar ul li a {
+    display: flex !important;              /* Flexbox layout for items */
+    align-items: center  !important;        /* Vertically center the items */
+}
+
+#sidebar ul li a i {
+    margin-right: 10px  !important;         /* Space between icon and text */
 }
 
 /*
@@ -2364,20 +3287,21 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn-info {
-  color: color-yiq(#17a2b8);
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  background-color: #3299bc !important;
+  border-color: #0babc4 !important;
+  color: white !important;
+font-size: 14px !important;
 }
 
 .btn-info:hover {
-  color: color-yiq(#138496);
-  background-color: #138496;
-  border-color: #117a8b;
+  color: #ffffff !important;
+  background-color: #1487ad !important;
 }
 
 .btn-info:focus, .btn-info.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
 }
 
 .btn-info.disabled, .btn-info:disabled {
@@ -2395,14 +3319,16 @@ STYLE SWITCHER FOR DEMO
 
 .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus,
 .show > .btn-info.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+  -webkit-box-shadow: none;
+  box-shadow:none;
 }
 
 .btn-warning {
-  color: color-yiq(#ffc107);
+  color: #27200c !important;
   background-color: #ffc107;
   border-color: #ffc107;
+  font-size: 13.5px !important;
+
 }
 
 .btn-warning:hover {
@@ -2412,8 +3338,9 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn-warning:focus, .btn-warning.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+  -webkit-box-shadow: none;
+  box-shadow:none;
+  outline: none;
 }
 
 .btn-warning.disabled, .btn-warning:disabled {
@@ -2431,14 +3358,16 @@ STYLE SWITCHER FOR DEMO
 
 .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus,
 .show > .btn-warning.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .btn-danger {
-  color: color-yiq(#bb414d);
-  background-color: #bb414d;
+  color: white !important;
+  background-color: #cd3746;
   border-color: #bb414d;
+  font-size: 14px !important;
+
 }
 
 .btn-danger:hover {

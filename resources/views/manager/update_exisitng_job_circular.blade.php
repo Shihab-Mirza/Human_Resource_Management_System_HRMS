@@ -11,7 +11,7 @@
         /* General Styles */
         .job-form {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             margin: 0;
             padding: 20px;
         }
@@ -24,12 +24,13 @@
             max-width: 100%; /* Full width */
             margin: auto;
             overflow: hidden; /* Prevent overflow */
+            font-size: 13px;
         }
 
         .job-form-title {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         fieldset {
@@ -43,6 +44,7 @@
         legend {
             font-weight: bold;
             margin-bottom: 10px;
+            font-size: 16px;
         }
 
         .form-row {

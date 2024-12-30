@@ -10,22 +10,25 @@
     @include('dp_manager.css')
     <style>
       body {
-        background-color: white; /* White background for the entire body */
-        color: #333; /* Dark text for good contrast */
+        background-color: rgb(255, 255, 255); /* White background for the entire body */
+        color: #ffffff; /* Dark text for good contrast */
         font-family: Arial, sans-serif;
       }
 
       .attendance-form {
         margin: 20px;
         padding: 20px;
-        background-color: #f9f9f9; /* Light background for the form */
+        background-color: #fffdfd; /* Light background for the form */
         border-radius: 8px; /* Rounded corners */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-size: 13px;
+        height: 100vh;
       }
 
       h2 {
         text-align: center;
         margin-bottom: 20px;
+        font-size: 20px;
       }
 
       .attendance-table {
@@ -69,6 +72,7 @@
         font-size: 16px;
         width: 100%;
         margin-bottom: 20px;
+        font-size: 15px;
       }
     </style>
   </head>

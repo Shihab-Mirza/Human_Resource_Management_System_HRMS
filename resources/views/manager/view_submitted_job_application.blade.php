@@ -11,13 +11,13 @@
         /* General Styles */
         .job-application-form {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             margin: 0;
             padding: 20px;
         }
 
         .job-application-form-container {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@
         .job-application-form-title {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         fieldset {
@@ -38,11 +38,13 @@
             padding: 15px;
             margin-bottom: 20px;
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            font-size: 13px;
         }
 
         legend {
             font-weight: bold;
             margin-bottom: 10px;
+            font-size: 17px;
         }
 
         .form-row {
